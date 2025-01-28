@@ -1,11 +1,11 @@
-#correct {
-    background: green;
+#correctdisplay{
+    background-color: green;
 }
-#wrong {
-    background: red;
+#wrongdisplay{
+    background-color: maroon;
 }
 button {
-    background-color: #04AA6D;
+    background-color: gray;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -15,4 +15,41 @@ button {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+  }
+
+progress {
+    width: 50%;
+    height: 20px;
+    appearance: none;
+    border: none;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+progress::-webkit-progress-bar {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+  }
+  
+progress::-webkit-progress-value {
+    background-color: maroon;
+    transition: width 0.5s ease-in-out;
+  }
+  
+progress::-moz-progress-bar {
+    background-color: maroon;
+    transition: width 0.5s ease-in-out;
+  }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+p {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
   }

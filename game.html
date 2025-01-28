@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>BurntWater Game</title>
+    
 </head>
-<body>
-    <div>
-        <p id="enemystatus">Enemy health</p>
+<body onload="game()">
+    <p class="center" id="enemystatus">Enemy health</p> 
+    <div class="center" >
         <progress id="enemy" value="100" max="100"></progress>
-        <p id="userstatus">Your health</p>
-        <progress id="user" value="100" max="100"></progress>
-        <p>Question 1</p>
+    </div> 
+    <br>
+    <div class="center">
+        <h1 id="question">Question 1</h1>
     </div>
-    <div id="answers">
+    <div class="center" id="answers">
         <button>Answer 1</button>
         <button>Answer 2</button>
         <button>Answer 3</button>
     </div>
-    
-    <script src="game.js"></script>
+    <p class="center" id="userstatus">Your health</p>
+    <div class="center">
+        <progress id="user" value="100" max="100"></progress>
+    </div>   
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,112 @@
+{
+  "questionlist": [
+    {
+      "question": "Which is the best conductor of electricity?",
+      "choices": [
+        "Silver",
+        "Copper",
+        "Human body"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the symbol for silver?",
+      "choices": [
+        "SI",
+        "AG",
+        "AU"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "How long does it take for light to travel from the Sun's surface to the Earth?",
+      "choices": [
+        "8 hours",
+        "8 days",
+        "8 minutes"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "Which animal can clean its own ear with its tongue?",
+      "choices": [
+        "Giraffe",
+        "Elephant",
+        "Lizard"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "An earthquake that measures 8 on the Richter Scale would be how many times stronger than an earthquake that measures 4 on the same scale?",
+      "choices": [
+        "10000x",
+        "4x",
+        "100x"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which planet has the most moons?",
+      "choices": [
+        "Saturn",
+        "Earth",
+        "Jupiter"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What hormone does the pancreas produce?",
+      "choices": [
+        "Insulin",
+        "Testosterone",
+        "Estrogen"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "How often do your tastebuds regenerate?",
+      "choices": [
+        "10 days",
+        "1 week",
+        "1 year"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "How long will it take for hot water to turn into ice compared to cold water?",
+      "choices": [
+        "Longer",
+        "Same Time",
+        "Shorter"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "Where are the three smallest bones in the human body?",
+      "choices": [
+        "Eye",
+        "Nose",
+        "Toes"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What layer of the Earth's atmosphere makes radio communications possible?",
+      "choices": [
+        "Exosphere",
+        "Ionosphere",
+        "Stratosphere"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the name of the lowest layer in Earth's atmosphere?",
+      "choices": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere"
+      ],
+      "answer": 2
+    }
+  ]
+}
