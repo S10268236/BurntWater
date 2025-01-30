@@ -1,3 +1,35 @@
+
+function clickanimation() {
+    let logobox = document.getElementById("logobox");
+    let dooranim = document.createElement('dotlottie-wc');
+    let door = logobox.querySelector("#logo");  
+    let script = logobox.querySelector("script");
+    let doorscript = document.createElement('script');
+    doorscript.src = "https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js";
+    doorscript.type = "module";
+    dooranim.src = "https://lottie.host/c05d975d-fc9b-4cfa-ba7f-2b0721d9b173/HTCBh5E1UZ.lottie";
+    dooranim.setAttribute("autoplay", "");
+    dooranim.id = "logo";
+    logobox.replaceChild(doorscript, script);
+    logobox.replaceChild(dooranim, door);
+    setTimeout(() =>{
+        logobox.id="dooranim";}
+    , 800);
+
+}
+function switchanimation() {
+    setTimeout(() =>{let logobox = document.getElementById("logobox");
+        let door = document.createElement('img');
+        let oldElement = logobox.querySelector("#logo");    
+        door.src = "door.svg";
+        door.alt = "door";
+        door.classList.add("center");
+        door.id = "logo";
+        door.addEventListener('click', clickanimation);
+        logobox.replaceChild(door, oldElement);
+    }, 1500);
+}
+
 function game() {
 
     let enemyhealth = 100;

@@ -48,6 +48,38 @@ progress::-moz-progress-bar {
     align-items: center;
 
   }
+img#logo{
+    max-height: 800px;
+}
+#logo{
+
+    display: flex;
+    margin-top: 7%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+#dooranim{
+    animation: doorzoom 1s forwards;}
+@keyframes doorzoom {
+  from {
+    transform: scale(1);}
+  to {
+    transform: scale(10);}
+  
+}
+@media only screen and (max-width: 600px) {
+  #logo{
+      display: flex;
+      margin-top: 50%;
+      margin-bottom: auto;
+      margin-left: -50%;
+      margin-right: auto;
+      width: 200%;}    
+}
+#door{
+  background-color: aquamarine;
+}
 p {
     font-size: 20px;
     font-weight: bold;
