@@ -1,32 +1,33 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BurntWater</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form action="login.php" method="post">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" required>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
-        <button type="submit">Login</button>
-    </form>
-    <script>
-        var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://scipoquest-68f1.restdb.io/rest/scipoquest-account-data",
-        "method": "GET",
-        "headers": {
-        "content-type": "application/json",
-        "x-apikey": "678f5e8b718b1ad549f8147c",
-        "cache-control": "no-cache"
-        }
-    }
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-    });</script>
+  <div class="login-container">
+    <h1>User Login</h1>
+    <div class="form-row">
+      <div id="register">
+        <h2>Register</h2>
+        <input type="text" id="regUsername" placeholder="Username" />
+        <input type="password" id="regPassword" placeholder="Password" />
+        <button onclick="register()">Register</button>
+      </div>
     
+      <hr />
+      <div id="login">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <button onclick="login()">Login</button>
+      </div>
+    </div>
+    <a href="home.html">Enter</a>
+  </div>
+  
+  <script src="login.js"></script>
 </body>
 </html>

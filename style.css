@@ -53,3 +53,122 @@ p {
     font-weight: bold;
     color: black;
   }
+/* CSS FOR LOGIN,HOME & TROPHY*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+  margin-bottom: 30px;
+}
+
+/* Register and Login Container */
+.form-row {
+  display: flex; /* Align Register and Login side by side */
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+#register, #login {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #register, #login {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+.top-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+  max-width: 800px;
+  min-height: 100vh;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.trophy-container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 trophies per row */
+  gap: 20px; /* Spacing between trophies */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.trophy {
+  text-align: center;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 150px;
+}
+
+.trophy img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.trophy-name {
+  font-size: 16px;
+  font-weight: bold;
+}
