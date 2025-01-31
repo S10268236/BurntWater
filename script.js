@@ -13,9 +13,11 @@ function clickanimation() {
     logobox.replaceChild(doorscript, script);
     logobox.replaceChild(dooranim, door);
     setTimeout(() =>{
-        logobox.id="dooranim";}
+        logobox.id="dooranim";
+        setTimeout(() =>{location.href = "login.html";}, 900);}
+        
     , 800);
-
+    
 }
 function switchanimation() {
     setTimeout(() =>{let logobox = document.getElementById("logobox");
@@ -27,6 +29,7 @@ function switchanimation() {
         door.id = "logo";
         door.addEventListener('click', clickanimation);
         logobox.replaceChild(door, oldElement);
+        setTimeout(() =>{window.location.href = home.html}, 800);
     }, 1500);
 }
 

@@ -132,3 +132,8 @@ async function updateGems(userId, newGems) {
       alert("An error occurred");
     }
   }
+
+function fadein(){
+  setTimeout(function(){
+    document.getElementById("overlay-black").outerHTML='';}, 1000);
+  }
