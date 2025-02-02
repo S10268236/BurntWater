@@ -1,6 +1,6 @@
 //LOGIN API//
-const apiKey = "6795e1862e4264a096d23985";
-const dbUrl = "https://burnttest-6fda.restdb.io/rest/logins";
+const apiKey = "679f624274defa6e69181f26";
+const dbUrl = "https://burntwater0-8144.restdb.io/rest/logins";
 
 // Register function
 async function register() {
