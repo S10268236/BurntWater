@@ -140,3 +140,19 @@ function game() {
 
     }   
 }
+
+/* JS for Home Page */
+function overlayonboss1() {
+    document.getElementById("overlayboss1").style.display = "block";
+  }
+  
+  function overlayoffboss1() {
+    document.getElementById("overlayboss1").style.display = "none";
+  }
+  function overlayonboss2() {
+    document.getElementById("overlayboss2").style.display = "block";
+  }
+  
+  function overlayoffboss2() {
+    document.getElementById("overlayboss2").style.display = "none";
+  }

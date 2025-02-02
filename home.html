@@ -5,9 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BurntWater</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="overlay" id="overlayboss1">
+    <div class="overlaycontent">
+      <h1 class="bosstitle">Defeat Mazinger Z</h1>
+      <p>Are you sure you want to accept this bounty?</p>
+      <button onclick="location.href='game.html'">Yes</button>
+      <button onclick="overlayoffboss1()">No</button>
+    </div>
+    
+  </div>
+  <div class="overlay" id="overlayboss2" onclick="overlayoffboss2()"></div>
+  <div class="nav">
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="game.html">Game</a></li>
+    </ul>
+  <div class="logo">
+  </div>
   
-  <script src=""></script>
+  <div class="menucontainer">
+    <h1 id="bountytitle">Today's Bounties</h1>
+    <div class="menu">
+      <div class="menuitem">
+        <h2 class="bosstitle">Mazinger Z, The Iron Colossus</h2>
+        <div class="sketchfab-embed-wrapper"> <iframe title="MZwalk" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="620" height="480" src="https://sketchfab.com/models/d8751487f99b42e7af3d3d89c9a11273/embed?autospin=1&autostart=1&preload=1&transparent=1"> </iframe> </div>
+        <h2>Description</h2>
+        <div class="description">
+          <p>Created as the ultimate war machine, Mazinger Z was originally designed to protect humanity, but it has since been corrupted by an unknown force. Now, it stands as an unstoppable juggernaut, crushing anything in its path. Only the bravest warriors dare challenge it, and even they fall before its overwhelming might.</p>
+        </div>
+        <h2>Rewards</h2>
+        <div class="rewards">
+          <p>1000 gold</p>
+        </div>
+        <button onclick="overlayonboss1()">Accept</button>
+      </div>
+      <div class="menuitem">
+        <h2 class="bosstitle">Mazinger Z, The Iron Colossus</h2>
+        <div class="sketchfab-embed-wrapper"> <iframe title="MZwalk" frameborder="0" allowfullscreen mozallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="620" height="480" src="https://sketchfab.com/models/d8751487f99b42e7af3d3d89c9a11273/embed?autospin=1&autostart=1&preload=1&transparent=1"> </iframe> </div>
+        <h2>Description</h2>
+        <div class="description">
+          <p>Created as the ultimate war machine, Mazinger Z was originally designed to protect humanity, but it has since been corrupted by an unknown force. Now, it stands as an unstoppable juggernaut, crushing anything in its path. Only the bravest warriors dare challenge it, and even they fall before its overwhelming might.</p>
+        </div>
+        <h2>Rewards</h2>
+        <div class="rewards">
+          <p>1000 gold</p>
+        </div>
+        <button onclick="overlayonboss2()">Accept</button>
+      </div>
+      </div>
+      
+  </div>
+  
+  <script src="script.js"></script>
 </body>
 </html>
