@@ -100,7 +100,6 @@ async function updateGems(userId, newGems) {
   
       if (users.length > 0 && users[0].password === password) {
         const user = users[0];
-        alert("Login successful!");
       } else {
         alert("Invalid username or password");
       }

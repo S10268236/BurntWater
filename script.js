@@ -1,3 +1,145 @@
+//LOGIN API//
+const apiKey = "679f624274defa6e69181f26";
+const dbUrl = "https://burntwater0-8144.restdb.io/rest/logins";
+// Register function
+async function register() {
+    const username = document.getElementById("regUsername").value;
+    const password = document.getElementById("regPassword").value;
+  
+    if (!username || !password) {
+      alert("Please fill in all fields");
+      return;
+    }
+  
+    // System-defined values
+    const gems = 0; // Default role for new users
+    const hp = 50; // Default status for new users
+    const atk = 10;
+    //Validate gems is integer
+    if (isNaN(gems) || gems < 0) {
+      alert("Gems must be a valid positive number or zero");
+      return;
+    }
+
+    try {
+      const response = await fetch(dbUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-apikey": apiKey,
+        },
+        body: JSON.stringify({
+          username,
+          password,
+          gems,
+          hp,
+          atk,
+        }),
+      });
+  
+      if (response.ok) {
+        alert("User registered successfully!");
+        
+        window.location.href = "home.html";
+      } else {
+        alert("Failed to register user");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred");
+    }
+  }
+  // Function to update gems
+async function updateGems(userId, newGems) {
+  if (isNaN(newGems) || newGems < 0) {
+    alert("Gems must be a valid positive number");
+    return;
+  }
+
+  try {
+    const response = await fetch(`${dbUrl}/${userId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "x-apikey": apiKey,
+      },
+      body: JSON.stringify({
+        gems: newGems, // Dynamically updated gems
+      }),
+    });
+
+    if (response.ok) {
+      alert("Gems updated successfully!");
+    } else {
+      alert("Failed to update gems");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("An error occurred");
+  }
+}
+  // Login function
+  async function login() {
+    const username = document.getElementById("loginUsername").value;
+    const password = document.getElementById("loginPassword").value;
+  
+    if (!username || !password) {
+      alert("Please fill in all fields");
+      return;
+    }
+  
+    try {
+      const response = await fetch(`${dbUrl}?q={"username":"${username}"}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-apikey": apiKey,
+        },
+      });
+  
+      const users = await response.json();
+  
+      if (users.length > 0 && users[0].password === password) {
+        user = users[0];
+        localStorage.setItem("user", [username,users[0].gems,users[0].hp,users[0].atk]);
+        alert("Login successful!");
+        window.location.href = "home.html";
+      } else {
+        alert("Invalid username or password");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred");
+    }
+  }
+  
+  // Update user values function (optional, for admin/system use)
+  async function updateUser(userId, updatedFields) {
+    try {
+      const response = await fetch(`${dbUrl}/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-apikey": apiKey,
+        },
+        body: JSON.stringify(updatedFields),
+      });
+  
+      if (response.ok) {
+        alert("User updated successfully!");
+      } else {
+        alert("Failed to update user");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred");
+    }
+  }
+
+function fadein(){
+  setTimeout(function(){
+    document.getElementById("overlay-black").outerHTML='';}, 1000);
+  }
 
 function clickanimation() {
     let logobox = document.getElementById("logobox");
@@ -34,7 +176,6 @@ function switchanimation() {
 }
 
 function game() {
-
     let enemyhealth = 100;
     let playerhealth = 100;
     let oldquestion = 0;
@@ -42,7 +183,7 @@ function game() {
     fetch('./questions.json')
         .then((response) => response.json())
         .then((json) => {questionjson = json;
-        console.log(questionjson);
+        
         oldquestion=newquestion(questionbank);
         correctoption = oldquestion[1];
         questionbank.push(oldquestion[0]);
@@ -82,9 +223,9 @@ function game() {
                     questionbank=[];
                     oldquestion=newquestion(questionbank);
                     correctoption = oldquestion[1];
-                    console.log("correct:" +correctoption);
+                    
                     questionbank.push(oldquestion[0]);
-                    console.log("new question?");
+                   
                 }
                 else{
                 correctoption = oldquestion[1];
@@ -100,11 +241,10 @@ function game() {
     ;
     function newquestion(oldquestion){
         if (oldquestion.length==questionjson.questionlist.length){
-            console.log("reset");
             return [-1, -1];
         }
         else{
-            console.log("log:"+oldquestion);
+            
         let randquestion = Math.floor(Math.random() * questionjson.questionlist.length);
         while (oldquestion.includes(randquestion)){
             randquestion = Math.floor(Math.random() * questionjson.questionlist.length);
