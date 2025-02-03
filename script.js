@@ -15,6 +15,8 @@ async function register() {
     const gems = 0; // Default role for new users
     const hp = 50; // Default status for new users
     const atk = 10;
+    const trophies = {};
+    const bosscounter = 0;
     //Validate gems is integer
     if (isNaN(gems) || gems < 0) {
       alert("Gems must be a valid positive number or zero");
@@ -34,6 +36,8 @@ async function register() {
           gems,
           hp,
           atk,
+          trophies,
+          bosscounter
         }),
       });
   
@@ -50,10 +54,12 @@ async function register() {
     }
   }
   // Function to update gems
-async function updateGems(userId, newGems) {
+async function updateGameEnd(userId, newGems) {
   let user = JSON.parse(localStorage.getItem("user"));
-  var jsondata = {"_id":user[4],"password":user[5],"gems":newGems,"username":user[0],"atk":user[3],"hp":user[2]};
-  localStorage.setItem("user", JSON.stringify([user[0],newGems,user[2],user[3], user[4],user[5]]));
+  gemupdate=user[1]+newGems;
+  bosscounter=user[7]+1;
+  var jsondata = {"_id":user[4],"password":user[5],"gems":gemupdate,"username":user[0],"atk":user[3],"hp":user[2],"trophies":user[6],"bosscounter":bosscounter};
+  localStorage.setItem("user", JSON.stringify([user[0],gemupdate,user[2],user[3], user[4],user[5],user[6],bosscounter]));
   var settings = {
     "async": true,
     "crossDomain": true,
@@ -95,7 +101,7 @@ async function updateGems(userId, newGems) {
   
       if (users.length > 0 && users[0].password === password) {
         user = users[0];
-        localStorage.setItem("user", JSON.stringify([username,users[0].gems,users[0].hp,users[0].atk, users[0]._id,users[0].password]));
+        localStorage.setItem("user", JSON.stringify([username,users[0].gems,users[0].hp,users[0].atk, users[0]._id,users[0].password,users[0].trophies, users[0].bosscounter]));
         alert("Login successful!");
         window.location.href = "home.html";
       } else {
@@ -159,7 +165,7 @@ function switchanimation() {
     setTimeout(() =>{let logobox = document.getElementById("logobox");
         let door = document.createElement('img');
         let oldElement = logobox.querySelector("#logo");    
-        door.src = "door.svg";
+        door.src = "assets/door.svg";
         door.alt = "door";
         door.classList.add("center");
         door.id = "logo";
@@ -207,24 +213,31 @@ function game() {
                     canclick+=1;
                     let health = document.getElementById("enemy")
                     health.value -= 10;
-                    if (health.value === 0) {
-                        gamewin();
-
-                    }
+                    
                 } else {
                     canclick+=1;
                     let health = document.getElementById("user")
                     health.value -= 10;
-                    if (health.value === 0) {
-                        document.getElementById('userstatus').innerHTML = 'You Lost!';
-                    }
+                    
             
                 }
             }
             answerdisplay();
             
-            setTimeout(function(){oldquestion=newquestion(questionbank);
+            setTimeout(function(){
+              
+              oldquestion=newquestion(questionbank);
+              let enemyhealth = document.getElementById("enemy")
+                if (enemyhealth.value === 0) {
+                  gamewin();
+  
+              }
+              let playerhealth = document.getElementById("user")
+              if (playerhealth.value === 0) {
+                gamelose();
+            }
                 if (oldquestion[0]==-1){
+                  
                     questionbank=[];
                     oldquestion=newquestion(questionbank);
                     correctoption = oldquestion[1];
@@ -235,7 +248,8 @@ function game() {
                 else{
                 correctoption = oldquestion[1];
                 questionbank.push(oldquestion[0]);}
-                canclick=0;}
+                canclick=0;
+                }
                 , 1000);
                 
             }
@@ -285,19 +299,13 @@ function game() {
 
     }   
 }
-
+reward = 10
 function gamewin(){
-    let user = JSON.parse(localStorage.getItem("user"));
-    let newgems = user[1]+10;
-    let userId = user[4];
-    updateGems(userId, newgems);
-    gameoverlay();
-    
-}
-
-function gameoverlay(){
   bossname = "Goober";
-  reward = 10;
+    let user = JSON.parse(localStorage.getItem("user"));
+    let newgems = reward;
+    let userId = user[4];
+    updateGameEnd(userId, newgems);
     let overlay = document.getElementById("gameoverlay")
     let overlaycontent = document.getElementsByClassName("overlaycontent")[0];
     overlay.style.display = "block";
@@ -313,8 +321,26 @@ function gameoverlay(){
     overlaycontent.appendChild(text);
     overlaycontent.appendChild(homebutton);
 }
+function gamelose(){
+  bossname = "Goober";
+    let overlay = document.getElementById("gameoverlay")
+    let overlaycontent = document.getElementsByClassName("overlaycontent")[0];
+    overlay.style.display = "block";
+    let header=document.createElement('h1');
+    header.innerHTML = "You were defeated by "+bossname+"!"; 
+    header.className = "bosstitle";
+    let text=document.createElement('p');
+    text.innerHTML = `Better luck next time!`;
+    let homebutton = document.createElement('button');
+    homebutton.innerHTML = "Go Home";
+    homebutton.onclick = function() {location.href = "home.html";};
+    overlaycontent.appendChild(header);
+    overlaycontent.appendChild(text);
+    overlaycontent.appendChild(homebutton);
+}
 /* JS for Home Page */
 function overlayonboss1() {
+  console.log(localStorage.getItem("user"));
     document.getElementById("overlayboss1").style.display = "block";
   }
   

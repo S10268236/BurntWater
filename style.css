@@ -1,3 +1,21 @@
+body{
+  background-color: #FCF5E5;
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+.nav li{
+  list-style: none;
+  display: inline;
+  margin-right: 10px;
+  text-decoration: none;
+  color: inherit;
+}
 /* CSS FOR GAME */
 #correctdisplay{
     background-color: green;
@@ -238,11 +256,8 @@ input {
   margin-right: auto;
   width: 1000px;
   height: 600px;
-  background-image: url('scipologo.png');
-  background-size: cover;
 }
 .menucontainer{
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,6 +267,7 @@ input {
   background-color: grey;
   width: 85%;
   flex-direction: column;
+  box-shadow:0px 0px 20px rgba(0, 0, 0, 0.4);  
 }
 .menu{
   display: flex;
@@ -280,7 +296,7 @@ input {
   display: flex;
   margin-left: 7%;
   margin-right: 7%;
-  background-image: url('dungeonBackground.png');
+  background-image: url('assets/dungeonBackground.png');
   background-size: cover;
   
 }
