@@ -51,32 +51,26 @@ async function register() {
   }
   // Function to update gems
 async function updateGems(userId, newGems) {
-  if (isNaN(newGems) || newGems < 0) {
-    alert("Gems must be a valid positive number");
-    return;
+  let user = JSON.parse(localStorage.getItem("user"));
+  var jsondata = {"_id":user[4],"password":user[5],"gems":newGems,"username":user[0],"atk":user[3],"hp":user[2]};
+  localStorage.setItem("user", JSON.stringify([user[0],newGems,user[2],user[3], user[4],user[5]]));
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://burntwater0-8144.restdb.io/rest/logins/"+userId,
+    "method": "PUT",
+    "headers": {
+      "content-type": "application/json",
+      "x-apikey": apiKey,
+      "cache-control": "no-cache"
+    },
+    "processData": false,
+    "data": JSON.stringify(jsondata)
   }
-
-  try {
-    const response = await fetch(`${dbUrl}/${userId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "x-apikey": apiKey,
-      },
-      body: JSON.stringify({
-        gems: newGems, // Dynamically updated gems
-      }),
-    });
-
-    if (response.ok) {
-      alert("Gems updated successfully!");
-    } else {
-      alert("Failed to update gems");
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    alert("An error occurred");
-  }
+  console.log(settings);
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
 }
   // Login function
   async function login() {
@@ -101,7 +95,7 @@ async function updateGems(userId, newGems) {
   
       if (users.length > 0 && users[0].password === password) {
         user = users[0];
-        localStorage.setItem("user", [username,users[0].gems,users[0].hp,users[0].atk]);
+        localStorage.setItem("user", JSON.stringify([username,users[0].gems,users[0].hp,users[0].atk, users[0]._id,users[0].password]));
         alert("Login successful!");
         window.location.href = "home.html";
       } else {
@@ -114,7 +108,7 @@ async function updateGems(userId, newGems) {
   }
   
   // Update user values function (optional, for admin/system use)
-  async function updateUser(userId, updatedFields) {
+  async function updateUser(userId, updatedFields,apiKey) {
     try {
       const response = await fetch(`${dbUrl}/${userId}`, {
         method: "PUT",
@@ -177,7 +171,18 @@ function switchanimation() {
 
 function game() {
     let enemyhealth = 100;
-    let playerhealth = 100;
+    let playerhealth = JSON.parse(localStorage.getItem("user"))[2];
+    let playerhealthprogress = document.createElement('progress');
+    let enemyhealthprogress = document.createElement('progress');
+    playerhealthprogress.id = "user";
+    enemyhealthprogress.id = "enemy";
+    playerhealthprogress.value = playerhealth;
+    playerhealthprogress.max = playerhealth;
+    let userbox = document.getElementById("userbox");
+    userbox.appendChild(playerhealthprogress);
+
+    playerhealthprogress.value = playerhealth;
+    playerhealthprogress.max = playerhealth;
     let oldquestion = 0;
     let questionbank=[];
     fetch('./questions.json')
@@ -203,7 +208,7 @@ function game() {
                     let health = document.getElementById("enemy")
                     health.value -= 10;
                     if (health.value === 0) {
-                        document.getElementById('enemystatus').innerHTML = 'You Win!';
+                        gamewin();
 
                     }
                 } else {
@@ -281,6 +286,33 @@ function game() {
     }   
 }
 
+function gamewin(){
+    let user = JSON.parse(localStorage.getItem("user"));
+    let newgems = user[1]+10;
+    let userId = user[4];
+    updateGems(userId, newgems);
+    gameoverlay();
+    
+}
+
+function gameoverlay(){
+  bossname = "Goober";
+  reward = 10;
+    let overlay = document.getElementById("gameoverlay")
+    let overlaycontent = document.getElementsByClassName("overlaycontent")[0];
+    overlay.style.display = "block";
+    let header=document.createElement('h1');
+    header.innerHTML = bossname+" defeated!"; 
+    header.className = "bosstitle";
+    let text=document.createElement('p');
+    text.innerHTML = `You have gained ${reward} gems!`;
+    let homebutton = document.createElement('button');
+    homebutton.innerHTML = "Go Home";
+    homebutton.onclick = function() {location.href = "home.html";};
+    overlaycontent.appendChild(header);
+    overlaycontent.appendChild(text);
+    overlaycontent.appendChild(homebutton);
+}
 /* JS for Home Page */
 function overlayonboss1() {
     document.getElementById("overlayboss1").style.display = "block";

@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>BurntWater Game</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+<div class="overlay" id="gameoverlay">
+    <div class="overlaycontent">
+    </div>
+</div>
 <body onload="game()">
     <p class="center" id="enemystatus">Enemy health</p> 
     <div class="center" >
@@ -21,8 +26,10 @@
         <button>Answer 3</button>
     </div>
     <p class="center" id="userstatus">Your health</p>
-    <div class="center">
-        <progress id="user" value="100" max="100"></progress>
+    <div class="center" id="userbox">
+        
+
+
     </div>   
     <script src="script.js"></script>
 </body>
