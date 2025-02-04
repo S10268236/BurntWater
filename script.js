@@ -40,11 +40,32 @@ async function register() {
           bosscounter
         }),
       });
-  
+      
       if (response.ok) {
-        alert("User registered successfully!");
+        try {
+          const response = await fetch(`${dbUrl}?q={"username":"${username}"}`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "x-apikey": apiKey,
+            },
+          });
+      
+          const users = await response.json();
+      
+          if (users.length > 0 && users[0].password === password) {
+            user = users[0];
+            localStorage.setItem("user", JSON.stringify([username,users[0].gems,users[0].hp,users[0].atk, users[0]._id,users[0].password,users[0].trophies, users[0].bosscounter]));
+            alert("User registered successfully!");
+            window.location.href = "home.html";
+          } else {
+            alert("Invalid username or password");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("An error occurred");
+        }
         
-        window.location.href = "home.html";
       } else {
         alert("Failed to register user");
       }
