@@ -5,30 +5,37 @@ body{
   background-color: white;
 }
 .nav{
-  
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  background-color: #888;
   padding: 10px 20px;
-  background-color: #333;
-  color: white;
+  position: sticky;
 }
-.nav li{
+.nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   list-style: none;
-  display: inline;
-  justify-content: space-between;
-  margin-right: 10px;
-  text-decoration: none;
-  color: inherit;
+  padding: 0;
+  margin: 0;
+  color: black;
 }
-.nav a, .nav p {
-  text-decoration: none;
-  color: inherit;
+.nav ul li{
+  flex:1;
+  text-align: center;
+  font-size: 35px;
+  font-family: "MedievalSharp",serif;
 }
 .nav a:hover{
   color: grey;
 }
-
+#gemCount{
+  color: black;
+  font-family: "MedievalSharp",serif;
+  font-size: 40px;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
 /* CSS FOR GAME */
 #correctdisplay{
     background-color: green;
@@ -262,16 +269,6 @@ input {
 }
 
 /* CSS HOME*/
-.nav{
-  display: flex;
-  justify-content:space-around;
-  width: 100%;
-  height: auto;
-}
-.nav li{
-  font-size: 50px;
-  font-family: "MedievalSharp",serif;
-}
 .logo{
   display: flex;
   margin-top: 2%;
