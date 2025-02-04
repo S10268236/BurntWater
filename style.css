@@ -262,6 +262,16 @@ input {
 }
 
 /* CSS HOME*/
+.nav{
+  display: flex;
+  justify-content:space-around;
+  width: 100%;
+  height: auto;
+}
+.nav li{
+  font-size: 50px;
+  font-family: "MedievalSharp",serif;
+}
 .logo{
   display: flex;
   margin-top: 2%;
