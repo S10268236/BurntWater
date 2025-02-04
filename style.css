@@ -1,7 +1,11 @@
 body{
   background-color: #FCF5E5;
 }
+#logo-page{
+  background-color: white;
+}
 .nav{
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,10 +16,19 @@ body{
 .nav li{
   list-style: none;
   display: inline;
+  justify-content: space-between;
   margin-right: 10px;
   text-decoration: none;
   color: inherit;
 }
+.nav a, .nav p {
+  text-decoration: none;
+  color: inherit;
+}
+.nav a:hover{
+  color: grey;
+}
+
 /* CSS FOR GAME */
 #correctdisplay{
     background-color: green;
@@ -101,10 +114,10 @@ img#logo{
   background-color: aquamarine;
 }
 p {
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-  }
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
 /* CSS FOR STARTUP LOGOS END*/
 /* CSS FOR LOGIN,HOME & TROPHY*/
 body#login-page{

@@ -354,3 +354,9 @@ function overlayonboss1() {
   function overlayoffboss2() {
     document.getElementById("overlayboss2").style.display = "none";
   }
+  function updategemsvisuals(){
+    let gems = JSON.parse(localStorage.getItem("user"))[1];
+    console.log(gems);
+    document.getElementById("gemCount").innerHTML = "Gems: " + gems;
+    
+  }
