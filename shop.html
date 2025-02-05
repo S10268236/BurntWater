@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scipoquest|Shop</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body onload="shopupdate()">
+  </div>
+  <div class="overlay" id="overlayboss2" onclick="overlayoffboss2()"></div>
+  <div class="nav">
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="game.html">Game</a></li>
+      <li><p id="gemCount">Gemcount</p></li>
+    </ul>
+  </div>
+  <div id="statshop">
+    <h1>Shop</h1>
+    <div class="shopitem">
+      <h2 class="bosstitle">Upgrade HP</h2> 
+      <div class="description">
+        <p>Increases your maximum health by 10</p>
+        <p id="currenthp"></p>
+      </div>
+      <h2>Cost</h2>
+      <div class="description">
+        <p class="cost"></p>
+      </div>
+      <button onclick="buyhp()">Buy</button>
+    </div>
+    <div class="shopitem">
+      <h2 class="bosstitle">Upgrade Attack</h2>
+      <h2>Description</h2>
+      <div class="description">
+        <p>Increases your attack power by 5</p>
+        <p id="currentatk"></p>
+      </div>
+      <h2>Cost</h2>
+      <div class="description">
+        <p class="cost"></p>
+      </div>
+      <button onclick="buyatk()">Buy</button>
+    </div>
+    </div>
+  </div>
+</body>
+</html>

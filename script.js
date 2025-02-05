@@ -2,6 +2,27 @@
 const apiKey = "679f624274defa6e69181f26";
 const dbUrl = "https://burntwater0-8144.restdb.io/rest/logins";
 // Register function
+async function updatelocal() {
+  let user = JSON.parse(localStorage.getItem("user"));
+  let username = user[0];
+  try {
+    const response = await fetch(`${dbUrl}?q={"username":"${username}"}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-apikey": apiKey,
+      },
+    });
+
+    const users = await response.json();
+    user = users[0];
+    localStorage.setItem("user", JSON.stringify([users[0].username,users[0].gems,users[0].hp,users[0].atk, users[0]._id,users[0].password,users[0].trophies, users[0].bosscounter]));
+    console.log("info updated");
+  } catch (error) {
+    console.error("Error:", error);
+    alert("An error occurred");
+}
+}
 async function register() {
     const username = document.getElementById("regUsername").value;
     const password = document.getElementById("regPassword").value;
@@ -196,6 +217,7 @@ function switchanimation() {
     }, 1500);
 }
 
+
 function game() {
     let enemyhealth = 100;
     let playerhealth = JSON.parse(localStorage.getItem("user"))[2];
@@ -381,3 +403,96 @@ function overlayonboss1() {
     document.getElementById("gemCount").innerHTML = "Gems: " + gems;
     
   }
+
+function shopupdate(){ 
+    updatelocal();
+    updategemsvisuals();
+    let user = JSON.parse(localStorage.getItem("user"));
+    let gems = user[1];
+    let hp = user[2];
+    let atk = user[3];
+    let shop = document.getElementById("shop");
+    let hpbox = document.getElementsByClassName("description")[0];
+    let atkbox = document.getElementsByClassName("description")[2];
+    let costboxes = document.getElementsByClassName("cost");
+    let hpprice = costboxes[0];
+    let atkprice = costboxes[1];
+    hpprice.innerHTML = `Cost: ${hp/10+5}`;
+    atkprice.innerHTML = `Cost: ${atk/5+8}`;
+    currenthp=document.getElementById("currenthp");
+    currentatk=document.getElementById("currentatk");
+    currenthp.innerHTML = `Current HP: ${hp}`;
+    currentatk.innerHTML = `Current ATK: ${atk}`;
+    hpbox.appendChild(currenthp);
+    atkbox.appendChild(currentatk);
+
+}
+
+function buyhp(){
+    let user = JSON.parse(localStorage.getItem("user"));
+    let gems = user[1];
+    let hp = user[2];
+    let cost = hp/10+5;
+    if (gems>=cost){
+        let newgems = gems-cost;
+        let userId = user[4];
+        let newhp = hp+10;
+        let jsondata = {"_id":user[4],"password":user[5],"gems":newgems,"username":user[0],"atk":user[3],"hp":newhp,"trophies":user[6],"bosscounter":user[7]};
+        localStorage.setItem("user", JSON.stringify([user[0],newgems,newhp,user[3], user[4],user[5],user[6],user[7]]));
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://burntwater0-8144.restdb.io/rest/logins/"+userId,
+            "method": "PUT",
+            "headers": {
+              "content-type": "application/json",
+              "x-apikey": apiKey,
+              "cache-control": "no-cache"
+            },
+            "processData": false,
+            "data": JSON.stringify(jsondata)
+          }
+          console.log(settings);
+          $.ajax(settings).done(function (response) {
+            console.log(response);
+          });
+          shopupdate();
+    }
+    else{
+        alert("Not enough gems!");
+    }
+}
+function buyatk(){
+  let user = JSON.parse(localStorage.getItem("user"));
+  let gems = user[1];
+  let atk = user[3];
+  let cost = atk/5+8;
+  if (gems>=cost){
+      let newgems = gems-cost;
+      let userId = user[4];
+      let newatk = atk+5;
+      let jsondata = {"_id":user[4],"password":user[5],"gems":newgems,"username":user[0],"atk":newatk,"hp":user[2],"trophies":user[6],"bosscounter":user[7]};
+      localStorage.setItem("user", JSON.stringify([user[0],newgems,user[2],newatk, user[4],user[5],user[6],user[7]]));
+      var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": "https://burntwater0-8144.restdb.io/rest/logins/"+userId,
+          "method": "PUT",
+          "headers": {
+            "content-type": "application/json",
+            "x-apikey": apiKey,
+            "cache-control": "no-cache"
+          },
+          "processData": false,
+          "data": JSON.stringify(jsondata)
+        }
+        console.log(settings);
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
+        shopupdate();
+  }
+  else{
+      alert("Not enough gems!");
+  }
+}

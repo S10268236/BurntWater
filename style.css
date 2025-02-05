@@ -24,6 +24,7 @@ body{
 .nav a, .nav p {
   text-decoration: none;
   color: inherit;
+  display: inline;
 }
 .nav a:hover{
   color: grey;
@@ -315,7 +316,7 @@ input {
 }
 .description{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-left: 10%;
