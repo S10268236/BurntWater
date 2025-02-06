@@ -155,6 +155,29 @@ async function updateGameEnd(userId, newGems) {
       alert("An error occurred");
     }
   }
+  //Login and Register button selector
+  //Register selector
+  let rindex = 0;
+  const revRegister = () => {
+    rindex ++;
+    if (rindex%2!=0) {
+      document.getElementById("register").style.display ='block';
+    }
+    else {
+      document.getElementById('register').style.display = 'none'
+    }
+  }
+  //Login Selector
+  let lindex = 0;
+  const revLogin = () => {
+    lindex ++;
+    if (lindex%2!=0) {
+      document.getElementById("login").style.display ='block';
+    }
+    else {
+      document.getElementById('login').style.display = 'none'
+    }
+  }
   
   // Update user values function (optional, for admin/system use)
   async function updateUser(userId, updatedFields,apiKey) {
