@@ -398,6 +398,38 @@ function gamelose(){
     overlaycontent.appendChild(text);
     overlaycontent.appendChild(homebutton);
 }
+const btnStart =document.querySelector(".btn-start");
+const timeSpan = document.querySelector(".time");
+const progressBar = document.querySelector(".progress-inner");
+
+btnStart.addEventListener("click",()=>{
+  let interval = 10;
+
+  var countDown = setInterval(()=>{
+    interval--;
+    let progressWidth = interval/ 10 *34
+    if (interval>0) {
+      progressBar.style.width = progressWidth+"%"
+      timeSpan.innerHTML = interval + "s"
+      checkColors(progressWidth)
+    }
+    else {
+      clearInterval(countDown)
+      progressBar.style.width = "0%";
+      timeSpan.innerHTML = "Game Over"
+    }
+
+  },1000);
+});
+const checkColors = (width) => {
+  if (width>17) {
+    progressBar.style.background = "green"
+  } else if (width >10) {
+    progressBar.style.background = "yellow"
+  } else {
+    progressBar.style.background = "red"
+  }
+};
 //GAME END
 //HOME START
 function overlayonboss1() {
