@@ -97,6 +97,7 @@ async function register() {
   }
   // Function to update gems
 async function updateGameEnd(userId, newGems) {
+  
   let user = JSON.parse(localStorage.getItem("user"));
   gemupdate=user[1]+newGems;
   bosscounter=user[7]+1;
@@ -398,6 +399,7 @@ function overlayonboss1() {
     document.getElementById("overlayboss2").style.display = "none";
   }
   function updategemsvisuals(){
+    updatelocal();
     let gems = JSON.parse(localStorage.getItem("user"))[1];
     console.log(gems);
     document.getElementById("gemCount").innerHTML = "Gems: " + gems;
@@ -425,7 +427,7 @@ function shopupdate(){
     currentatk.innerHTML = `Current ATK: ${atk}`;
     hpbox.appendChild(currenthp);
     atkbox.appendChild(currentatk);
-
+    console.log(localStorage);
 }
 
 function buyhp(){
@@ -494,5 +496,67 @@ function buyatk(){
   }
   else{
       alert("Not enough gems!");
+  }
+}
+
+function buytrophy(trophytype, price) {
+  let user = JSON.parse(localStorage.getItem("user"));
+  let gems = user[1];
+  let trophies = user[6];
+  console.log("trophies=" + JSON.stringify(trophies));
+  if (gems >= price) {
+    let newgems = gems - price;
+    let userId = user[4];
+    let newtrophies = trophies;
+    if (newtrophies[`${trophytype}`] == null) {
+      newtrophies[`${trophytype}`] = 1;
+    } 
+    else {
+      newtrophies[`${trophytype}`] = newtrophies[`${trophytype}`] + 1;
+    }
+    let jsondata = {
+      _id: user[4],
+      password: user[5],
+      gems: newgems,
+      username: user[0],
+      atk: user[3],
+      hp: user[2],
+      trophies: newtrophies,
+      bosscounter: user[7],
+    };
+    console.log("data:" + JSON.stringify(jsondata));
+    localStorage.setItem(
+      "user",
+      JSON.stringify([
+        user[0],
+        newgems,
+        user[2],
+        user[3],
+        user[4],
+        user[5],
+        newtrophies,
+        user[7],
+      ])
+    );
+    var settings = {
+      async: true,
+      crossDomain: true,
+      url: "https://burntwater0-8144.restdb.io/rest/logins/" + userId,
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+        "x-apikey": apiKey,
+        "cache-control": "no-cache",
+      },
+      processData: false,
+      data: JSON.stringify(jsondata),
+    };
+    console.log(settings);
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+    shopupdate();
+  } else {
+    alert("Not enough gems!");
   }
 }
