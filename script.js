@@ -408,13 +408,14 @@ function overlayonboss1() {
   function overlayoffboss1() {
     document.getElementById("overlayboss1").style.display = "none";
   }
-  function overlayonboss2() {
-    document.getElementById("overlayboss2").style.display = "block";
-  }
-  
-  function overlayoffboss2() {
-    document.getElementById("overlayboss2").style.display = "none";
-  }
+function overlayonboss2() {
+  console.log(localStorage.getItem("user"));
+  document.getElementById("overlayboss2").style.display = "block";
+}
+
+function overlayoffboss2() {
+  document.getElementById("overlayboss2").style.display = "none";
+}
   function updategemsvisuals(){
     updatelocal();
     let gems = JSON.parse(localStorage.getItem("user"))[1];
