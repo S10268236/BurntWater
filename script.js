@@ -270,7 +270,8 @@ function game() {
                 if (i === correctoption) {
                     canclick+=1;
                     let health = document.getElementById("enemy")
-                    health.value -= 10;
+                    health.value -= JSON.parse(localStorage.getItem("user"))[3];
+                    console.log(health.value);
                     
                 } else {
                     canclick+=1;
