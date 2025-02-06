@@ -127,16 +127,8 @@ p {
   color: black;
 }
 /* CSS FOR STARTUP LOGOS END*/
-/* CSS FOR LOGIN,HOME & TROPHY*/
-.eagle-lake-regular {
-  font-family: "Eagle Lake", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
+/* CSS FOR LOGIN TROPHY START*/
 body#login-page{
-  font-family: "Eagle Lake", serif;
-  color: brown;
   margin: 0;
   padding: 0;
   display: flex;
@@ -165,7 +157,14 @@ body#login-page{
 
 /* Register and Login Container */
 #register {
+  font-family: "Eagle Lake", serif;
   display: none;
+  color: #954535;
+}
+
+#login {
+  font-family: "Eagle Lake", serif;
+  color: #954535;
 }
 .form-row {
   display: flex; /* Align Register and Login side by side */
@@ -173,9 +172,12 @@ body#login-page{
   width: 100%;
   gap: 20px;
 }
-.prettyforms button {
-  height:"400px";
-  width:"600px"
+.loginform button {
+  height:"800px";
+  width:"1000px";
+  color: brown;
+  font-family: "MedievalSharp", serif;
+  font-size: 20px;
 }
 
 
@@ -266,8 +268,16 @@ input {
       opacity: 0;
   }
 }
-
+/* CSS FOR LOGIN TROPHY END*/
 /* CSS HOME*/
+.menu button {
+  height: 50px;
+  width: 200px;
+  font-family: "Eagle Lake", serif;
+  font-size: 20px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
 .logo{
   display: flex;
   margin-top: 2%;
