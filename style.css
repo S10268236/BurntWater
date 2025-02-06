@@ -173,10 +173,10 @@ body#login-page{
   width: 100%;
   gap: 20px;
 }
-/*All general must specify !!.prettyforms button {
+.prettyforms button {
   height:"400px";
   width:"600px"
-}*/
+}
 
 
 input {

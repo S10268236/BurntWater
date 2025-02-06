@@ -1,4 +1,4 @@
-//LOGIN API//
+//LOGIN START//
 const apiKey = "679f624274defa6e69181f26";
 const dbUrl = "https://burntwater0-8144.restdb.io/rest/logins";
 // Register function
@@ -167,17 +167,7 @@ async function updateGameEnd(userId, newGems) {
       document.getElementById('register').style.display = 'none'
     }
   }
-  //Login Selector
-  let lindex = 0;
-  const revLogin = () => {
-    lindex ++;
-    if (lindex%2!=0) {
-      document.getElementById("login").style.display ='block';
-    }
-    else {
-      document.getElementById('login').style.display = 'none'
-    }
-  }
+  //LOGIN END
   
   // Update user values function (optional, for admin/system use)
   async function updateUser(userId, updatedFields,apiKey) {
@@ -201,7 +191,7 @@ async function updateGameEnd(userId, newGems) {
       alert("An error occurred");
     }
   }
-
+//LOTTIE START
 function fadein(){
   setTimeout(function(){
     document.getElementById("overlay-black").outerHTML='';}, 1000);
@@ -241,7 +231,8 @@ function switchanimation() {
     }, 1500);
 }
 
-
+//LOTTIE END
+//GAME START
 function game() {
     let enemyhealth = 100;
     let playerhealth = JSON.parse(localStorage.getItem("user"))[2];
@@ -405,7 +396,8 @@ function gamelose(){
     overlaycontent.appendChild(text);
     overlaycontent.appendChild(homebutton);
 }
-/* JS for Home Page */
+//GAME END
+//HOME START
 function overlayonboss1() {
   console.log(localStorage.getItem("user"));
     document.getElementById("overlayboss1").style.display = "block";
@@ -428,7 +420,8 @@ function overlayonboss1() {
     document.getElementById("gemCount").innerHTML = "Gems: " + gems;
     
   }
-
+//HOME END
+//SHOP START
 function shopupdate(){ 
     updatelocal();
     updategemsvisuals();
@@ -583,3 +576,4 @@ function buytrophy(trophytype, price) {
     alert("Not enough gems!");
   }
 }
+//SHOP END
