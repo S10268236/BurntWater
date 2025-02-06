@@ -31,7 +31,7 @@ async function register() {
       alert("Please fill in all fields");
       return;
     }
-  
+    
     // System-defined values
     const gems = 0; // Default role for new users
     const hp = 50; // Default status for new users
@@ -88,7 +88,7 @@ async function register() {
         }
         
       } else {
-        alert("Failed to register user");
+        alert("Username already exists!");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -212,7 +212,9 @@ function clickanimation() {
     logobox.replaceChild(dooranim, door);
     setTimeout(() =>{
         logobox.id="dooranim";
-        setTimeout(() =>{location.href = "login.html";}, 900);}
+        setTimeout(() =>{ 
+        if(localStorage.getItem("user") != null){location.href = "home.html";}
+        else{location.href = "login.html";}}, 900);}
         
     , 800);
     
@@ -227,7 +229,7 @@ function switchanimation() {
         door.id = "logo";
         door.addEventListener('click', clickanimation);
         logobox.replaceChild(door, oldElement);
-        setTimeout(() =>{window.location.href = home.html}, 800);
+        
     }, 1500);
 }
 
@@ -302,7 +304,6 @@ function game() {
                     correctoption = oldquestion[1];
                     
                     questionbank.push(oldquestion[0]);
-                   
                 }
                 else{
                 correctoption = oldquestion[1];
