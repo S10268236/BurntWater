@@ -44,7 +44,7 @@ body{
 #wrongdisplay{
     background-color: maroon;
 }
-button {
+.center button {
     background-color: gray;
     border: none;
     color: white;
