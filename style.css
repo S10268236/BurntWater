@@ -406,3 +406,13 @@ input {
 .overlaycontent p, .overlaycontent button{
   font-size: 40px;
 }
+
+.trophy{
+height: 100px;
+width: auto;
+}
+.trophybox{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

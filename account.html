@@ -8,16 +8,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
     <title>Shop</title>
+    <script src="script.js"></script>
 </head>
-<body>
+
+<body onload="updategemsvisuals(); accountupdate()">
+    <div class="overlay" id="overlaylogout">
+    <div class="overlaycontent">
+      <h1 class="bosstitle">Log out?</h1>
+      <button onclick="logout()">Confirm</button>
+      <button onclick="logoutoff()">Cancel</button>
+    </div>
+    </div>
     <div class="nav">
         <ul>
           <li><a href="home.html">Home</a></li>
           <li><a href="login.html">Login</a></li>
           <li><a href="index.html">Index</a></li>
           <li><a href="game.html">Game</a></li>
+          <li><a href="account.html">Account</a></li>
           <li><p id="gemCount">Gemcount</p></li>
         </ul>
       </div>
+      <div class="account">
+        <h1>Account</h1>
+        <div class="accountinfo">
+          <h2>Username</h2>
+          <p id="usernamefield">Username</p>
+          <h2>Password</h2>
+          <p id="passwordfield">Password</p>
+          <button onclick="showpassword()" id="showbutton">Show Password</button>
+          <div class="trophiesbox">
+            <h2>Trophies</h2>
+
+          </div>
+          <h2>Gems</h2>
+          <p id="gemfield">gems</p>
+          <div class="statsbox"> 
+            <h2>HP</h2>
+            <p id="hpfield">hp</p>
+            <h2>ATK</h2>
+            <p id="atkfield">atk</p>
+          </div>
+          
+          <button onclick="logoutoverlay()">Logout</button>
+        </div>
 </body>
 </html>
