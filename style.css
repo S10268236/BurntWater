@@ -162,6 +162,9 @@ h1 {
 }
 
 /* Register and Login Container */
+#login{
+  display: none;
+}
 .form-row {
   display: flex; /* Align Register and Login side by side */
   justify-content: space-between;
@@ -169,7 +172,7 @@ h1 {
   gap: 20px;
 }
 
-#register, #login {
+#register {
   display: flex;
   flex-direction: column;
   flex: 1;

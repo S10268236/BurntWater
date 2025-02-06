@@ -155,6 +155,17 @@ async function updateGameEnd(userId, newGems) {
       alert("An error occurred");
     }
   }
+  //Login and Register button selector
+  let index = 0;
+  const revRegister = () => {
+    index ++;
+    if (index%2!=0) {
+      document.getElementById("register").style.display ='block';
+    }
+    else {
+      document.getElementById('register').style.display = 'none'
+    }
+  }
   
   // Update user values function (optional, for admin/system use)
   async function updateUser(userId, updatedFields,apiKey) {
