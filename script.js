@@ -31,7 +31,7 @@ async function register() {
       alert("Please fill in all fields");
       return;
     }
-  
+    
     // System-defined values
     const gems = 0; // Default role for new users
     const hp = 50; // Default status for new users
@@ -88,7 +88,7 @@ async function register() {
         }
         
       } else {
-        alert("Failed to register user");
+        alert("Username already exists!");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -212,7 +212,9 @@ function clickanimation() {
     logobox.replaceChild(dooranim, door);
     setTimeout(() =>{
         logobox.id="dooranim";
-        setTimeout(() =>{location.href = "login.html";}, 900);}
+        setTimeout(() =>{ 
+        if(localStorage.getItem("user") != null){location.href = "home.html";}
+        else{location.href = "login.html";}}, 900);}
         
     , 800);
     
@@ -227,7 +229,7 @@ function switchanimation() {
         door.id = "logo";
         door.addEventListener('click', clickanimation);
         logobox.replaceChild(door, oldElement);
-        setTimeout(() =>{window.location.href = home.html}, 800);
+        
     }, 1500);
 }
 
@@ -302,7 +304,6 @@ function game() {
                     correctoption = oldquestion[1];
                     
                     questionbank.push(oldquestion[0]);
-                   
                 }
                 else{
                 correctoption = oldquestion[1];
@@ -578,3 +579,66 @@ function buytrophy(trophytype, price) {
   }
 }
 //SHOP END
+
+//ACCOUNT START
+function accountupdate(){
+let user = JSON.parse(localStorage.getItem("user"));
+usernamefield=document.getElementById("usernamefield");
+passwordfield=document.getElementById("passwordfield");
+trophiesfield=document.getElementsByClassName("trophiesbox")[0];
+gemfield=document.getElementById("gemfield");
+hpfield=document.getElementById("hpfield");
+atkfield=document.getElementById("atkfield");
+usernamefield.innerHTML = user[0];
+passwordhide=user[5].replace(/./g, '*');
+passwordfield.innerHTML = passwordhide;
+gemfield.innerHTML = "Gems: "+user[1];
+hpfield.innerHTML = "HP: "+user[2];
+atkfield.innerHTML = "ATK: "+user[3];
+trophies = user[6];
+let trophylist = Object.keys(trophies);
+let trophycount = Object.values(trophies);
+for (let i=0; i<trophylist.length; i++){
+  let trophy = document.createElement('img');
+  trophy.src = `assets/trophies/${trophylist[i]}.svg`;
+  trophy.alt = trophylist[i];
+  trophy.className = "trophy";
+  let trophycountdisplay = document.createElement('p'); 
+  let trophybox = document.createElement('div');
+  trophybox.className = "trophybox";
+  trophycountdisplay.innerHTML = `${trophylist[i].charAt(0).toUpperCase()+trophylist[i].slice(1).replace("Trophy", " Trophy")}: ${trophycount[i]}`;
+  trophiesfield.appendChild(trophybox);
+  trophybox.appendChild(trophy);
+  trophybox.appendChild(trophycountdisplay);
+}
+}
+
+function showpassword(){
+  let user = JSON.parse(localStorage.getItem("user"));
+  passwordfield=document.getElementById("passwordfield");
+  passwordfield.innerHTML = user[5];
+  button=document.getElementById("showbutton");
+  button.innerHTML = "Hide Password";
+  button.onclick = hidepassword;
+}
+function hidepassword(){
+  let user = JSON.parse(localStorage.getItem("user"));
+  passwordfield=document.getElementById("passwordfield");
+  passwordhide=user[5].replace(/./g, '*');
+  passwordfield.innerHTML = passwordhide;
+  button=document.getElementById("showbutton");
+  button.innerHTML = "Show Password";
+  button.onclick = showpassword;
+}
+function logoutoverlay(){
+  document.getElementById("overlaylogout").style.display = "block";
+  console.log("logout overlay");
+}
+function logoutoff(){
+  document.getElementById("overlaylogout").style.display = "none";
+  console.log("logout overlay off");
+}
+function logout(){
+  localStorage.clear();
+  window.location.href = "login.html";
+}
