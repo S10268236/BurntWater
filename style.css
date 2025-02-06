@@ -173,15 +173,7 @@ h1 {
 }
 
 #register {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin: 10px;
-  background-color: #f9f9f9;
-  text-align: center;
+  display: none;
 }
 
 input {

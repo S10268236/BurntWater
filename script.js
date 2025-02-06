@@ -156,14 +156,26 @@ async function updateGameEnd(userId, newGems) {
     }
   }
   //Login and Register button selector
-  let index = 0;
+  //Register selector
+  let rindex = 0;
   const revRegister = () => {
-    index ++;
-    if (index%2!=0) {
+    rindex ++;
+    if (rindex%2!=0) {
       document.getElementById("register").style.display ='block';
     }
     else {
       document.getElementById('register').style.display = 'none'
+    }
+  }
+  //Login Selector
+  let lindex = 0;
+  const revLogin = () => {
+    lindex ++;
+    if (lindex%2!=0) {
+      document.getElementById("login").style.display ='block';
+    }
+    else {
+      document.getElementById('login').style.display = 'none'
     }
   }
   
