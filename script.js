@@ -235,46 +235,13 @@ function switchanimation() {
 
 //LOTTIE END
 //GAME START
+let timerInterval;
 
-//Timer countdown
-function startTimer() {
-  clearInterval(timerInterval);
-  const timeSpan = document.querySelector(".time");
-  const progressBar = document.querySelector(".progress-inner");
-  let interval = 10;
-  
-  timerInterval = setInterval(() => {
-      interval--;
-      let progressWidth = (interval / 10) * 34;
-      
-      if (interval >= 0) {
-          progressBar.style.width = progressWidth + "%";
-          timeSpan.innerHTML = interval + "s";
-          checkColors(progressWidth);
-      } else {
-          clearInterval(timerInterval);
-          progressBar.style.width = "0%";
-      }
-  }, 1000);
-}
-
-function checkColors(progressWidth) {
-  const progressBar = document.querySelector(".progress-inner");
-  if (progressWidth > 17) {
-      progressBar.style.backgroundColor = "green";
-  } else if (progressWidth > 10) {
-      progressBar.style.backgroundColor = "orange";
-  } else {
-      progressBar.style.backgroundColor = "red";
-  }
-}
-//Timer End//
 function game() {
     let enemyhealth = 100;
     let playerhealth = JSON.parse(localStorage.getItem("user"))[2];
     let playerhealthprogress = document.createElement('progress');
     let enemyhealthprogress = document.createElement('progress');
-    let timerInterval;
     playerhealthprogress.id = "user";
     enemyhealthprogress.id = "enemy";
     playerhealthprogress.value = playerhealth;
@@ -435,6 +402,38 @@ function gamelose(){
     overlaycontent.appendChild(header);
     overlaycontent.appendChild(text);
     overlaycontent.appendChild(homebutton);
+}
+//Timer countdown
+function startTimer() {
+  clearInterval(timerInterval);
+  const timeSpan = document.querySelector(".time");
+  const progressBar = document.querySelector(".progress-inner");
+  let interval = 10;
+  
+  timerInterval = setInterval(() => {
+      interval--;
+      let progressWidth = (interval / 10) * 34;
+      
+      if (interval >= 0) {
+          progressBar.style.width = progressWidth + "%";
+          timeSpan.innerHTML = interval + "s";
+          checkColors(progressWidth);
+      } else {
+          clearInterval(timerInterval);
+          progressBar.style.width = "0%";
+      }
+  }, 1000);
+}
+
+function checkColors(progressWidth) {
+  const progressBar = document.querySelector(".progress-inner");
+  if (progressWidth > 17) {
+      progressBar.style.backgroundColor = "green";
+  } else if (progressWidth > 10) {
+      progressBar.style.backgroundColor = "orange";
+  } else {
+      progressBar.style.backgroundColor = "red";
+  }
 }
 
 //GAME END
