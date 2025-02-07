@@ -366,7 +366,7 @@ function game() {
 
 function gamewin(){
   bossname = localStorage.getItem("bossname");
-  reward = localStorage.getItem("reward");
+  reward = Number(localStorage.getItem("reward"));
   bossname = bossname.replace(/([A-Z])/g, ' $1').trim()
     let user = JSON.parse(localStorage.getItem("user"));
     let newgems = reward;

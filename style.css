@@ -383,9 +383,17 @@ input {
   font-size: 35px;
   font-family: "MedievalSharp",serif;
   display: inline;
+  
 }
+.nav a{
+  text-decoration: none;
+  color: black;
+  padding: 10px 20px;
+  display: block;
+  transition: 0.5s;}
 .nav a:hover{
   color: whitesmoke;
+  
 }
 .menu button {
   height: 50px;
