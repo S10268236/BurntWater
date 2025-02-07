@@ -404,19 +404,22 @@ function timer() {
   const timeSpan = document.querySelector(".time");
   const progressBar = document.querySelector(".progress-inner");
 
-  let interval = 10;
-  var countDown = setInterval(()=>{
-    interval--;
-    let progressWidth = interval/ 10 *34
-    if (interval>=0) {
-      progressBar.style.width = progressWidth+"%"
-      timeSpan.innerHTML = interval + "s"
-      checkColors(progressWidth)
-    }
-    else {
-      clearInterval(countDown)
-      progressBar.style.width = "0%";
-    }
+  window.addEventListener("load",()=>{
+
+    var countDown = setInterval(()=>{
+      interval--;
+      let progressWidth = interval/ 10 *34
+      if (interval>=0) {
+        progressBar.style.width = progressWidth+"%"
+        timeSpan.innerHTML = interval + "s"
+        checkColors(progressWidth)
+      }
+      else {
+        clearInterval(countDown)
+        progressBar.style.width = "0%";
+      }
+  
+    },1000);
   });
   const checkColors = (width) => {
     if (width>17) {
