@@ -314,8 +314,7 @@ function game() {
                 
             }
         });
-    buttn.addEventListener("click", ()=>{
-      timer();
+    buttn.addEventListener("click", (timer)=>{
     })    
     }
 
@@ -408,7 +407,7 @@ function timer() {
 
   let interval = 10;
 
-  var countDown = setInterval(()=>{
+  let countDown = setInterval(()=>{
     interval--;
     let progressWidth = interval/ 10 *34
     if (interval>=0) {
