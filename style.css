@@ -492,3 +492,10 @@ width: auto;
   flex-direction: row;
   align-items: center;
 }
+/*SHOP START
+COST BUTTON */
+.cost{
+  font-size: 30px;
+  height: auto;
+  width: auto;
+}
