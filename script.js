@@ -404,7 +404,7 @@ function gamelose(){
 }
 //Timer countdown
 function timer() {
-  clearInterval(timerInterval)
+  clearInterval(timerInterval);
   const timeSpan = document.querySelector(".time");
   const progressBar = document.querySelector(".progress-inner");
   let interval = 10;
