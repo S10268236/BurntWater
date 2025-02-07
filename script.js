@@ -403,7 +403,7 @@ function gamelose(){
     overlaycontent.appendChild(homebutton);
 }
 //Timer countdown
-function timer() {
+function startTimer() {
   clearInterval(timerInterval);
   const timeSpan = document.querySelector(".time");
   const progressBar = document.querySelector(".progress-inner");
