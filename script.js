@@ -241,6 +241,7 @@ function game() {
     let playerhealthprogress = document.createElement('progress');
     let enemyhealthprogress = document.createElement('progress');
     let timerInterval;
+
     playerhealthprogress.id = "user";
     enemyhealthprogress.id = "enemy";
     playerhealthprogress.value = playerhealth;
@@ -250,7 +251,9 @@ function game() {
 
     playerhealthprogress.value = playerhealth;
     playerhealthprogress.max = playerhealth;
+
     startTimer();
+    
     let oldquestion = 0;
     let questionbank=[];
     fetch('./questions.json')
@@ -409,7 +412,7 @@ function startTimer() {
   const progressBar = document.querySelector(".progress-inner");
   let interval = 10;
   
-  let countDown = setInterval(() => {
+  let timerInterval = setInterval(() => {
       interval--;
       let progressWidth = (interval / 10) * 34;
       
