@@ -453,7 +453,7 @@ function overlayonboss1() {
   console.log(localStorage.getItem("user"));
     document.getElementById("overlayboss1").style.display = "block";
     localStorage.setItem("bossname", "JWhink");
-    localStorage.setItem("reward", "11");
+    localStorage.setItem("reward", 11);
   }
   
   function overlayoffboss1() {
@@ -463,7 +463,7 @@ function overlayonboss2() {
   console.log(localStorage.getItem("user"));
   document.getElementById("overlayboss2").style.display = "block";
   localStorage.setItem("bossname", "Sekigoo");
-  localStorage.setItem("reward", "13");
+  localStorage.setItem("reward", 13);
 }
 
 function overlayoffboss2() {
@@ -487,7 +487,7 @@ function shopupdate(){
     let atk = user[3];
     let shop = document.getElementById("shop");
     let hpbox = document.getElementsByClassName("description")[0];
-    let atkbox = document.getElementsByClassName("description")[2];
+    let atkbox = document.getElementsByClassName("description")[1];
     let costboxes = document.getElementsByClassName("cost");
     let hpprice = costboxes[0];
     let atkprice = costboxes[1];
