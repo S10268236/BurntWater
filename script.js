@@ -261,11 +261,11 @@ function game() {
     })
     document.getElementById('enemy').innerHTML = enemyhealth;
     document.getElementById('user').innerHTML = playerhealth;
+    timer();
     let canclick=0;
     for (let i = 1; i <= 3; i++) {
         const buttn = document.querySelector(`#answers button:nth-child(${i})`);
         buttn.addEventListener('click', () => {
-            
             if (canclick==0){
 
             if (playerhealth > 0 && enemyhealth > 0){
@@ -399,13 +399,12 @@ function gamelose(){
     overlaycontent.appendChild(homebutton);
 }
 //Timer countdown
-const timeStart =document.querySelector(".countdown");
-const timeSpan = document.querySelector(".time");
-const progressBar = document.querySelector(".progress-inner");
+function timer() {
+  const timeStart =document.querySelector(".countdown");
+  const timeSpan = document.querySelector(".time");
+  const progressBar = document.querySelector(".progress-inner");
 
-let interval = 10;
-window.addEventListener("load",()=>{
-
+  let interval = 10;
   var countDown = setInterval(()=>{
     interval--;
     let progressWidth = interval/ 10 *34
@@ -418,18 +417,18 @@ window.addEventListener("load",()=>{
       clearInterval(countDown)
       progressBar.style.width = "0%";
     }
+  });
+  const checkColors = (width) => {
+    if (width>17) {
+      progressBar.style.background = "green"
+    } else if (width >10) {
+      progressBar.style.background = "yellow"
+    } else {
+      progressBar.style.background = "red"
+    }
+  };
+}
 
-  },1000);
-});
-const checkColors = (width) => {
-  if (width>17) {
-    progressBar.style.background = "green"
-  } else if (width >10) {
-    progressBar.style.background = "yellow"
-  } else {
-    progressBar.style.background = "red"
-  }
-};
 //GAME END
 //HOME START
 function overlayonboss1() {
