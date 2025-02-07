@@ -6,11 +6,12 @@ async function updatelocal() {
   let user = JSON.parse(localStorage.getItem("user"));
   let username = user[0];
   try {
+    // Fetch user data from the database using the username
     const response = await fetch(`${dbUrl}?q={"username":"${username}"}`, {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
-        "x-apikey": apiKey,
+      "Content-Type": "application/json",
+      "x-apikey": apiKey,
       },
     });
 
@@ -157,40 +158,21 @@ async function updateGameEnd(userId, newGems) {
   }
   //Login and Register button selector
   //Register selector
-  let rindex = 0;
-  const revRegister = () => {
-    rindex ++;
-    if (rindex%2!=0) {
+  
+  function revRegister() {
+    if (document.getElementById("register").style.display == 'none') {
       document.getElementById("register").style.display ='block';
-    }
+      document.getElementById("login").style.display = 'none';
+      }
     else {
       document.getElementById('register').style.display = 'none'
-    }
-  }
+      document.getElementById("login").style.display = 'block'
+      }}
+      
+
   //LOGIN END
   
-  // Update user values function (optional, for admin/system use)
-  async function updateUser(userId, updatedFields,apiKey) {
-    try {
-      const response = await fetch(`${dbUrl}/${userId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "x-apikey": apiKey,
-        },
-        body: JSON.stringify(updatedFields),
-      });
-  
-      if (response.ok) {
-        alert("User updated successfully!");
-      } else {
-        alert("Failed to update user");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred");
-    }
-  }
+
 //LOTTIE START
 function fadein(){
   setTimeout(function(){
