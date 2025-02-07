@@ -17,8 +17,8 @@ body{
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    height: 50%;
+    width: auto;
+    height: 800px;
 } 
 #correctdisplay{
     background-color: green;
@@ -63,6 +63,15 @@ progress::-moz-progress-bar {
     background-color: maroon;
     transition: width 0.5s ease-in-out;
   }
+progress.progress-inner::-webkit-progress-value {
+    background-color: var(--progress-color, maroon);
+    transition: width 0.5s ease-in-out;
+  }
+  
+progress.progress-inner::-moz-progress-bar {
+    background-color: var(--progress-color, maroon);
+    transition: width 0.5s ease-in-out;
+  }
 
 .center {
     display: flex;
@@ -100,7 +109,6 @@ p{
   margin-bottom: 50px;
 }
 .progress-inner {
-  background: green;
   position: absolute;
   width: 500px;
   height: 20px;
