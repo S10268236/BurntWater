@@ -403,31 +403,32 @@ function gamelose(){
 function timer() {
   const timeSpan = document.querySelector(".time");
   const progressBar = document.querySelector(".progress-inner");
-
   let interval = 10;
+  
+  let countDown = setInterval(() => {
+      interval--;
+      let progressWidth = (interval / 10) * 34;
+      
+      if (interval >= 0) {
+          progressBar.style.width = progressWidth + "%";
+          timeSpan.innerHTML = interval + "s";
+          checkColors(progressWidth);
+      } else {
+          clearInterval(countDown);
+          progressBar.style.width = "0%";
+      }
+  }, 1000);
+}
 
-  let countDown = setInterval(()=>{
-    interval--;
-    let progressWidth = interval/ 10 *34
-    if (interval>=0) {
-      progressBar.style.width = progressWidth+"%";
-      timeSpan.innerHTML = interval + "s";
-      checkColors(progressWidth);
-    }
-    else {
-      clearInterval(countDown)
-      progressBar.style.width = "0%";
-    }
-  },1000);
-  const checkColors = (width) => {
-    if (width>17) {
-      progressBar.style.background = "green"
-    } else if (width >10) {
-      progressBar.style.background = "yellow"
-    } else {
-      progressBar.style.background = "red"
-    }
-  };
+function checkColors(progressWidth) {
+  const progressBar = document.querySelector(".progress-inner");
+  if (progressWidth > 17) {
+      progressBar.style.backgroundColor = "green";
+  } else if (progressWidth > 10) {
+      progressBar.style.backgroundColor = "orange";
+  } else {
+      progressBar.style.backgroundColor = "red";
+  }
 }
 
 //GAME END
