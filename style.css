@@ -4,32 +4,7 @@ body{
 #logo-page{
   background-color: white;
 }
-.nav{
-  width: 100%;
-  background-color: #888;
-  padding: 10px 20px;
-  position: sticky;
-}
-.nav ul{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  color: black;
-}
-.nav ul li{
-  flex:1;
-  text-align: center;
-  font-size: 35px;
-  font-family: "MedievalSharp",serif;
-  display: inline;
-}
-.nav a:hover{
-  color: grey;
-}
+
 #gemCount{
   color: black;
   font-family: "MedievalSharp",serif;
@@ -315,6 +290,32 @@ input {
 }
 /* CSS FOR LOGIN TROPHY END*/
 /* CSS HOME*/
+.nav{
+  width: 100%;
+  background-color: #888;
+  padding: 10px 20px;
+  position: sticky;
+}
+.nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+.nav li{
+  flex:1;
+  text-align: center;
+  font-size: 35px;
+  font-family: "MedievalSharp",serif;
+  display: inline;
+}
+.nav a:hover{
+  color: whitesmoke;
+}
 .menu button {
   height: 50px;
   width: 200px;
@@ -350,9 +351,8 @@ input {
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2%;
-
   width: 100%;
+  height:auto;
 }
 .menuitem{
   display: flex;
@@ -361,9 +361,8 @@ input {
   align-items: center;
   margin-left: 1%;
   margin-right: 1%;
-  
-  margin-bottom: 2%;
   background-color: beige;
+  height: auto;
   width: 99%;
 }
 .sketchfab-embed-wrapper{
@@ -372,32 +371,52 @@ input {
   margin-right: 7%;
   background-image: url('assets/dungeonBackground.png');
   background-size: cover;
-  
+  margin-bottom: 2%;
+  flex-shrink: 0;
 }
 .description{
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  height: 300px;
   justify-content: center;
   align-items: center;
   margin-left: 10%;
   margin-right: 10%;
-  height: auto;
   background-color: burlywood;
   width: 85%;
 }
 .description p{
   margin-left: 5%;
   margin-right: 5%;
-  font-size: 20px;
+  font-size: 25px;
   font-family: "MedievalSharp", serif;
   font-weight: 400;
   font-style: normal;
 }
-.bosstitle{
-  font-size: 60px;
-  font-family: "MedievalSharp", serif;
+.bosstitle1{
+  font-size: 70px;
+  font-family: "Eagle Lake", serif;
   font-weight: 400;
-  font-style: normal;
+  font-style: bold;
+  justify-content: center;
+  align-items: center;
+  color: #5D3FD3;
+}
+.bosstitle2{
+  font-size: 70px;
+  font-family: "Eagle Lake", serif;
+  font-weight: 400;
+  font-style: bold;
+  justify-content: center;
+  align-items: center;
+  color: #D4AF37;
+}
+.bosstype {
+  font-family: "Eagle Lake",serif;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
 #bountytitle{
@@ -405,6 +424,8 @@ input {
   font-family: "MedievalSharp", serif;
   font-weight: 400;
   font-style: normal;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 .rewards{
   display: flex;
@@ -420,7 +441,7 @@ input {
 .rewards p{
   margin-left: 5%;
   margin-right: 5%;
-  font-size: 20px;
+  font-size: 40px;
   font-family: "MedievalSharp", serif;
   font-weight: 400;
   font-style: normal;
