@@ -364,9 +364,11 @@ function game() {
 
     }   
 }
-reward = 10
+
 function gamewin(){
-  bossname = "Goober";
+  bossname = localStorage.getItem("bossname");
+  reward = localStorage.getItem("reward");
+  bossname = bossname.replace(/([A-Z])/g, ' $1').trim()
     let user = JSON.parse(localStorage.getItem("user"));
     let newgems = reward;
     let userId = user[4];
@@ -387,7 +389,8 @@ function gamewin(){
     overlaycontent.appendChild(homebutton);
 }
 function gamelose(){
-  bossname = "Goober";
+  bossname = localStorage.getItem("bossname");
+  bossname = bossname.replace(/([A-Z])/g, ' $1').trim()
     let overlay = document.getElementById("gameoverlay")
     let overlaycontent = document.getElementsByClassName("overlaycontent")[0];
     overlay.style.display = "block";
@@ -411,11 +414,10 @@ function startTimer() {
   let interval = 10;
   
   timerInterval = setInterval(() => {
-      interval--;
-      let progressWidth = (interval / 10) * 34;
-      
+    interval--;
+    const progressWidth = (interval / 10) * 100;
       if (interval >= 0) {
-          progressBar.style.width = progressWidth + "%";
+          progressBar.value = progressWidth;
           timeSpan.innerHTML = interval + "s";
           checkColors(progressWidth);
       } else {
@@ -426,13 +428,12 @@ function startTimer() {
 }
 
 function checkColors(progressWidth) {
-  const progressBar = document.querySelector(".progress-inner");
-  if (progressWidth > 17) {
-      progressBar.style.backgroundColor = "green";
+  if (progressWidth > 50) {
+      document.documentElement.style.setProperty('--progress-color', 'green');
   } else if (progressWidth > 10) {
-      progressBar.style.backgroundColor = "orange";
+      document.documentElement.style.setProperty('--progress-color', 'orange');
   } else {
-      progressBar.style.backgroundColor = "red";
+      document.documentElement.style.setProperty('--progress-color', 'red');
   }
 }
 
@@ -441,6 +442,8 @@ function checkColors(progressWidth) {
 function overlayonboss1() {
   console.log(localStorage.getItem("user"));
     document.getElementById("overlayboss1").style.display = "block";
+    localStorage.setItem("bossname", "JWhink");
+    localStorage.setItem("reward", "11");
   }
   
   function overlayoffboss1() {
@@ -449,6 +452,8 @@ function overlayonboss1() {
 function overlayonboss2() {
   console.log(localStorage.getItem("user"));
   document.getElementById("overlayboss2").style.display = "block";
+  localStorage.setItem("bossname", "Sekigoo");
+  localStorage.setItem("reward", "13");
 }
 
 function overlayoffboss2() {
