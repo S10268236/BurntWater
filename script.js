@@ -267,6 +267,7 @@ function game() {
         const buttn = document.querySelector(`#answers button:nth-child(${i})`);
         buttn.addEventListener('click', () => {
             if (canclick==0){
+              timer();
 
             if (playerhealth > 0 && enemyhealth > 0){
                 if (i === correctoption) {
