@@ -267,12 +267,22 @@ function game() {
                     let health = document.getElementById("enemy")
                     health.value -= JSON.parse(localStorage.getItem("user"))[3];
                     console.log(health.value);
+                    dmgvisual=document.getElementsByClassName("slashanimation")[0]
+                    dmgvisual.style.display="block";
+                    dmgvisual.id="slashanimationanim"
+                    setTimeout(function(){dmgvisual.id="";dmgvisual.style.display="none";}, 200);
                     
                 } else {
                     canclick+=1;
                     let health = document.getElementById("user")
                     health.value -= 10;
-                    
+                    dmgvisual=document.getElementById("dmgindicator")
+                    dmgvisual.id="dmgindicatoranim";
+                    dmgcolor=document.getElementById("dmgindicatorcolor");
+                    dmgcolor.style.display="block";
+                    setTimeout(function(){dmgcolor.style.display="none";
+                      dmgvisual.id="dmgindicator";
+                    }, 200);
             
                 }
             }
@@ -378,6 +388,7 @@ function gamewin(){
     overlaycontent.appendChild(homebutton);
 }
 function gamelose(){
+  clearInterval(timerInterval);
   bossname = localStorage.getItem("bossname");
   bossname = bossname.replace(/([A-Z])/g, ' $1').trim()
     let overlay = document.getElementById("gameoverlay")
