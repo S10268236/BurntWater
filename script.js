@@ -249,6 +249,7 @@ function game() {
 
     playerhealthprogress.value = playerhealth;
     playerhealthprogress.max = playerhealth;
+    timer();
     let oldquestion = 0;
     let questionbank=[];
     fetch('./questions.json')
@@ -261,7 +262,6 @@ function game() {
     })
     document.getElementById('enemy').innerHTML = enemyhealth;
     document.getElementById('user').innerHTML = playerhealth;
-    timer();
     let canclick=0;
     for (let i = 1; i <= 3; i++) {
         const buttn = document.querySelector(`#answers button:nth-child(${i})`);
@@ -314,7 +314,9 @@ function game() {
                 
             }
         });
-        
+    buttn.addEventListener("click", ()=>{
+      timer();
+    })    
     }
 
     ;
@@ -404,22 +406,20 @@ function timer() {
   const timeSpan = document.querySelector(".time");
   const progressBar = document.querySelector(".progress-inner");
 
-  window.addEventListener("load",()=>{
+  let interval = 10;
 
-    var countDown = setInterval(()=>{
-      interval--;
-      let progressWidth = interval/ 10 *34
-      if (interval>=0) {
-        progressBar.style.width = progressWidth+"%"
-        timeSpan.innerHTML = interval + "s"
-        checkColors(progressWidth)
-      }
-      else {
-        clearInterval(countDown)
-        progressBar.style.width = "0%";
-      }
-  
-    },1000);
+  var countDown = setInterval(()=>{
+    interval--;
+    let progressWidth = interval/ 10 *34
+    if (interval>=0) {
+      progressBar.style.width = progressWidth+"%"
+      timeSpan.innerHTML = interval + "s"
+      checkColors(progressWidth)
+    }
+    else {
+      clearInterval(countDown)
+      progressBar.style.width = "0%";
+    }
   });
   const checkColors = (width) => {
     if (width>17) {
