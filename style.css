@@ -13,6 +13,13 @@ body{
   padding: 10px 20px;
 }
 /* CSS FOR GAME */
+#bossimage{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+} 
 #correctdisplay{
     background-color: green;
 }
