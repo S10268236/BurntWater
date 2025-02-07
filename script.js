@@ -317,7 +317,7 @@ function game() {
                 
             }
         });
-        buttn.addEventListener("click", startTimer);
+      buttn.addEventListener("click", startTimer);
      
     }
 
