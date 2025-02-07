@@ -238,13 +238,6 @@ function switchanimation() {
 let timerInterval;
 
 function game() {
-    bossimg = document.getElementById("bossimage");
-    bossname = localStorage.getItem("bossname");
-    bossimg.src = `assets/bosses/${bossname}.png`;
-    bossnamevisual=document.getElementById("enemystatus");
-    bossname = bossname.replace(/([A-Z])/g, ' $1').trim()
-    console.log(bossname);
-    bossnamevisual.innerHTML = bossname+" HP:";
     let enemyhealth = 100;
     let playerhealth = JSON.parse(localStorage.getItem("user"))[2];
     let playerhealthprogress = document.createElement('progress');
@@ -415,23 +408,19 @@ function startTimer() {
   clearInterval(timerInterval);
   const timeSpan = document.querySelector(".time");
   const progressBar = document.querySelector(".progress-inner");
-  let interval = 11;
+  let interval = 10;
   
   timerInterval = setInterval(() => {
-    interval--;
+      interval--;
       let progressWidth = (interval / 10) * 34;
       
       if (interval >= 0) {
           progressBar.style.width = progressWidth + "%";
           timeSpan.innerHTML = interval + "s";
           checkColors(progressWidth);
-      if (interval==0){
-        document.getElementById("wrong").click();
-      }
       } else {
           clearInterval(timerInterval);
           progressBar.style.width = "0%";
-          
       }
   }, 1000);
 }
