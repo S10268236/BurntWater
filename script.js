@@ -314,8 +314,8 @@ function game() {
                 
             }
         });
-    buttn.addEventListener("click", (timer)=>{
-    })    
+      buttn.addEventListener("click", timer);
+     
     }
 
     ;
@@ -401,7 +401,6 @@ function gamelose(){
 }
 //Timer countdown
 function timer() {
-  const timeStart =document.querySelector(".countdown");
   const timeSpan = document.querySelector(".time");
   const progressBar = document.querySelector(".progress-inner");
 
@@ -411,15 +410,15 @@ function timer() {
     interval--;
     let progressWidth = interval/ 10 *34
     if (interval>=0) {
-      progressBar.style.width = progressWidth+"%"
-      timeSpan.innerHTML = interval + "s"
-      checkColors(progressWidth)
+      progressBar.style.width = progressWidth+"%";
+      timeSpan.innerHTML = interval + "s";
+      checkColors(progressWidth);
     }
     else {
       clearInterval(countDown)
       progressBar.style.width = "0%";
     }
-  });
+  },1000);
   const checkColors = (width) => {
     if (width>17) {
       progressBar.style.background = "green"
