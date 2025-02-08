@@ -37,7 +37,7 @@ async function register() {
     const gems = 0; // Default role for new users
     const hp = 50; // Default status for new users
     const atk = 10;
-    const trophies = {};
+    const trophies = {bronzeTrophy: 0, silverTrophy: 0, goldTrophy: 0};
     const bosscounter = 0;
     //Validate gems is integer
     if (isNaN(gems) || gems < 0) {
@@ -365,6 +365,7 @@ function game() {
 }
 
 function gamewin(){
+  clearInterval(timerInterval);
   bossname = localStorage.getItem("bossname");
   reward = Number(localStorage.getItem("reward"));
   bossname = bossname.replace(/([A-Z])/g, ' $1').trim()
@@ -410,9 +411,8 @@ function gamelose(){
 function startTimer() {
   clearInterval(timerInterval);
   const timeSpan = document.querySelector(".time");
-  const progressBar = document.querySelector(".progress-inner");
+  const progressBar = document.getElementById("timer");
   let interval = 11;
-  
   timerInterval = setInterval(() => {
     interval--;
     const progressWidth = (interval / 10) * 100;

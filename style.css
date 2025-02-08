@@ -1,19 +1,39 @@
 
 body{
-  background-color: #FCF5E5;
+  background-color: beige;
+  margin: 0;
 }
 #logo-page{
   background-color: white;
 }
 
-#gemCount{
-  color: black;
-  font-family: "MedievalSharp",serif;
-  font-size: 40px;
-  margin-top: 10px;
-  padding: 10px 20px;
-}
+
 /* CSS FOR GAME */
+body[onload="game()"]{
+    top: 0; left: 0;
+    margin-top: 10%;
+    background-image: url('assets/dungeonBackground.png');
+    background-size: cover;
+    background-position: center 13%;
+}
+#playerbox{
+    background-color: #755a5b;
+    border: 2px solid black;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    padding-bottom: 1%;
+}
+#enemybox{
+  background-color: #755a5b;
+  border: 2px solid black;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1%;
+}
+
 #bossimage{
     display: flex;
     margin-left: auto;
@@ -64,16 +84,18 @@ progress::-moz-progress-bar {
     background-color: maroon;
     transition: width 0.5s ease-in-out;
   }
-progress.progress-inner::-webkit-progress-value {
+progress#timer::-webkit-progress-value {
     background-color: var(--progress-color, maroon);
     transition: width 0.5s ease-in-out;
   }
   
-progress.progress-inner::-moz-progress-bar {
+progress#timer::-moz-progress-bar {
     background-color: var(--progress-color, maroon);
     transition: width 0.5s ease-in-out;
   }
-
+progress#timer{
+  width: 30%;
+}
 .center {
   font-family: "Eagle Lake", serif;
     display: flex;
@@ -85,15 +107,11 @@ progress.progress-inner::-moz-progress-bar {
   margin-bottom: 2%;
 }
 /*Timer CSS*/
-*{
-  box-sizing: border-box;
 
-  padding: 0;
-}
 .countdown {
   font-family: "Bokor", serif;
   width: 100%;
-  height: 30px;
+  height: 10%;
   color: black;
   display: flex;
   align-items: center;
@@ -101,6 +119,8 @@ progress.progress-inner::-moz-progress-bar {
   flex-direction: column;
   margin-top: 2%;
   margin-bottom: 2%;
+  background-color: #b07f5f;
+  
 }
 
 @keyframes shake {
@@ -160,11 +180,7 @@ p{
   background-color: grey;
   margin-bottom: 3%;
 }
-.progress-inner {
-  position: absolute;
-  width: 50%;
-  height: 20px;
-}
+
 .btn-start {
   padding: 5px;
   width: 10%;
@@ -197,18 +213,7 @@ img#logo{
     transform: scale(10);}
   
 }
-@media only screen and (max-width: 600px) {
-  #logo{
-      display: flex;
-      margin-top: 50%;
-      margin-bottom: auto;
-      margin-left: -50%;
-      margin-right: auto;
-      width: 200%;}    
-}
-#door{
-  background-color: aquamarine;
-}
+
 /* FIND WHERE THIS IS USED 
 p {
   font-size: 20px;
@@ -360,10 +365,15 @@ input {
 /* CSS FOR LOGIN TROPHY END*/
 /* CSS HOME*/
 .nav{
+  margin: 0;
   width: 100%;
-  background-color: #888;
-  padding: 10px 20px;
+  background-color: #543d59;
   position: sticky;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
+  
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .nav ul{
   display: flex;
@@ -386,12 +396,18 @@ input {
 .nav a{
   text-decoration: none;
   color: black;
-  padding: 10px 20px;
+ 
   display: block;
   transition: 0.5s;}
 .nav a:hover{
   color: whitesmoke;
   
+}
+#gemCount{
+  color: black;
+  font-family: "MedievalSharp",serif;
+  font-size: 40px;
+
 }
 .menu button {
   height: 3%;
@@ -413,6 +429,7 @@ input {
   width: 50%;
   height: 30%;
 }
+
 .menu{
   display: flex;
   flex-wrap: nowrap;
@@ -423,11 +440,14 @@ input {
   margin-bottom: 2%;
   margin-left: 2%;
   margin-right: 2%;
-  background-color: grey;
-  width: 96%;
+  background-color: #b07f5f;
   height:70%;
   box-shadow:0px 0px 20px rgba(0, 0, 0, 0.4);
   gap: 20px;
+  border-radius: 20px;
+  border: #954535;
+  border-style: solid;
+  border-width: 10px;
 }
 .menuitem{
   display: flex;
@@ -435,8 +455,10 @@ input {
   justify-content: center;
   align-items: center;
   background-color: beige;
-  height: 40%;
-  width: 99%;
+  max-width: 47%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 20px;
 }
 .sketchfab-embed-wrapper{
   display: flex;
@@ -447,7 +469,7 @@ input {
   margin-bottom: 2%;
   flex-shrink: 1;
   height: 50%;
-  width: 100%;
+  width: 50%;
 }
 .description{
   display: flex;
@@ -478,6 +500,7 @@ input {
   justify-content: center;
   align-items: center;
   color: #5D3FD3;
+  margin-bottom: 0%;
 }
 .bosstitle2{
   font-size: 70px;
@@ -485,12 +508,14 @@ input {
   justify-content: center;
   align-items: center;
   color: #D4AF37;
+  margin-bottom: 0%;
 }
 .bosstype {
   font-family: "Eagle Lake",serif;
   font-size: 30px;
   justify-content: center;
   align-items: center;
+  margin-top: 0%;
 }
 
 .home-bounty-title{
@@ -540,20 +565,23 @@ input {
   align-items: center;
 }
 .overlaycontent {
+  border-radius: 20px;
+  img{
+    height: auto;
+    width: 100%;
+  }
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  top: 15%;
+  left: 24%;
   background-color: beige;
   text-align: center;
-  border: 1px solid #888;
   z-index: 3;
   width: 50%;
-  height: 80%;
+  height: auto;
   overflow: auto;
   justify-content: center;
   align-items: center;
+  padding: 2%;
 }
 
 .overlaycontent p, .overlaycontent button{
@@ -619,134 +647,171 @@ COST BUTTON */
   align-items: center;
   width: 10%;
 }
-/*Media Responive Bootstrap*/
-.container {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+
+/* ACCOUNT PAGE */
+.account{
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.accountinfo{
+  text-align: center;
+  font-size: 30px;
+  font-family: "MedievalSharp", serif;
+  margin-bottom: 3%;
+}
+button[onclick="logoutoverlay()"]{
+  font-size: 20px;
+  background-color: maroon;
+  color: white;
+  border: 1;
+  border-radius: 5px;
+  outline: none;
+  padding: 10px;
+  margin-top: 3%;
+}
+button[onclick="logoutoverlay()"]:hover{
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  border: 1;
+  outline: none;
+  padding: 10px;
+  margin-top: 3%;
 }
 
-/* 2xl */
-@media (max-width: 1536px) {
-  .container {
-    max-width: 1536px;
+/* ACCOUNT PAGE END*/
+@media screen and (max-width: 600px) {
+  #logo{
+    display: flex;
+    margin-top: 50%;
+    margin-bottom: auto;
+    margin-left: -50%;
+    margin-right: auto;
+    width: 200%;}    
+  #door{
+  background-color: aquamarine;
   }
-  #overlay-black {
-    max-width: 1536px;
-  }
-  .logo {
-    max-width: 1280px;
-  }
-
-  
-}
-
-/* xl */
-@media (max-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-  #overlay-black {
-    max-width: 1280px;
-  }
-
-  .logo {
-    max-width: 1024px;
-  }
-  .menu {
-    max-width: 1280px;
-  }
-  .sketchfab-embed-wrapper {
-    max-width: 1024px;
-  }
-  
-}
-
-/* lg */
-@media (max-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-  #overlay-black {
-    max-width: 1024px;
-  }
-  .logo {
-    max-width: 768px;
-  }
-  .menu {
-    max-width: 1024px;
-  }
-  
-  @media (max-aspect-ratio: 3/2) {
-    .sketchfab-embed-wrapper {
-    max-width: 768px;
-    width: 300px;
-    }
-  }
-}
-
-/* md */
-@media (max-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-  #overlay-black {
-    max-width: 768px;
-  }
-  .logo {
-    max-width: 768px;
-  }
-  .menu {
-    max-width: 768px;
-    flex-wrap: wrap ;
-  }
-  @media (max-aspect-ratio: 3/2) {
-    .sketchfab-embed-wrapper {
-    max-width: 768px;
-    width: 300px;
-    }
-  }
+  /*Home page*/
   .home-bounty-title {
-    font-size: 30px ;
+    font-size: 30px;
   }
-
-}
-
-/* sm */
-@media (max-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-  #overlay-black {
-    max-width: 640px;
-  }
-    .logo {
-      max-width: 640px;
-    }
-    .menu {
-      max-width: 640px;
-    }
-    .sketchfab-embed-wrapper {
-      max-width: 475px;
-    }
-  
-}
-
-/* xs */
-@media (max-width: 476px) {
-  .container {
+  .logo {
     width: 100%;
   }
-  #bounty-title {
-    font-size: 15px;
+  .nav{
+    width: 100%;
   }
-  .bosstitle1 {
-    font-size: 30px;
+  .menu {
+    justify-content: center;
+    width: 94%;
+    max-width: 94%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:auto;
+    padding:0;
   }
-  .bosstype {
+  .menuitem {
+    max-width: 95%;
+    width: 97%;
+  }
+  .sketchfab-embed-wrapper {
+    width: 100%;
+  }
+  .overlaycontent {
+    width: 85%;
+    left: 5.5%;
+    top: 20%;
+    margin: 0;
+  }
+  /*Home page*/
+
+
+
+
+
+    /*login page*/
+    .loginform {
+      width: 98%;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 0;
+      margin:0;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  .login-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  #register, #login {
+    width: 96%;
+    padding-left: 4%;
+  }
+  #regUsername, #regPassword, #regEmail, #regPassword2, #loginUsername, #loginPassword{
+    width: 95%;
+    
+  }
+  .form-row {
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /*login page end*/
+  /*Game page*/
+  #bossimage{
+    width: 100%;
+    height: auto;
+    
+  }
+  body[onload="game()"]{
+    top: 0; left: 0;
+    margin-top: 10%;
+    background-image: url('assets/dungeonBackground.png');
+    background-size: cover no-repeat;
+    background-position: center 1%;
+  }
+  #playerbox{
+    width: 90%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    padding-bottom: 1%;
+    
+  }
+  #question{
     font-size: 20px;
   }
-  .bosstitle2 {
-    font-size: 30px;
+  #enemybox{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    padding-bottom: 1%;
+  }
+  #playerbox button {
+    padding: 20px;
+    font-size: 14px;
+  }
+  /*Game page end*/
+  /*Account page*/
+  .account{
+    width: 90%;
+    max-width: 100%;
+    padding: 0;
   }
 }
-/*MEDIA RESPONSIVE END*/
+

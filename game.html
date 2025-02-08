@@ -20,11 +20,14 @@
     <div class="slashanimation"></div>
     <div id="dmgindicator">
     <img alt="Boss" class="center" id="bossimage">
+    <div id="enemybox">
     <h3 class="center" id="enemystatus">Enemy health</h3> 
     <div class="center" >
-        <progress id="enemy" value="100" max="100"></progress>
-    </div> 
+        <progress id="enemy" value="100" max="100" ></progress>
+    </div>   
+    </div>
     <br>
+    <div id="playerbox">
     <div class="center">
         <h1 id="question">Question 1</h1>
     </div>
@@ -35,16 +38,14 @@
     </div>
     <div class="countdown">
         <p>Time Left: <span class="time">10s</span></p>
-
-        <div class="progress">
-            <progress class="progress-inner" value="100" max="100"></progress>
-        </div>
+        <progress class="progress" id="timer" value="100" max="100"></progress>
     </div>
+    
     <h3 class="center" id="userstatus">Your health</h3>
     <div class="center" id="userbox">
         
 
-
+    </div>
     </div>   
 </div>
     <script src="script.js"></script>
