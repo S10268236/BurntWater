@@ -11,72 +11,69 @@
   <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 </head>
 <body onload="updategemsvisuals(); fadein()">
-  <div id="overlay-black"></div>
-  <div class="overlay" id="overlayboss1">
-    <div class="overlaycontent">
-      <h1 class="bosstitle">Defeat J.Whink</h1>
-      <p>Are you sure you want to accept this bounty?</p>
-      <button onclick="location.href='game.html'">Yes</button>
-      <button onclick="overlayoffboss1()">No</button>
-    </div>   
-  </div>
-  <div class="overlay" id="overlayboss2">
+  <section class="container">
+    <div id="overlay-black"></div>
+    <div class="overlay" id="overlayboss1">
       <div class="overlaycontent">
-        <h1 class="bosstitle">Defeat SekiGoo</h1>
+        <h1 class="bosstitle">Defeat J.Whink</h1>
         <p>Are you sure you want to accept this bounty?</p>
         <button onclick="location.href='game.html'">Yes</button>
-        <button onclick="overlayoffboss2()">No</button>
+        <button onclick="overlayoffboss1()">No</button>
+      </div>   
+    </div>
+    <div class="overlay" id="overlayboss2">
+        <div class="overlaycontent">
+          <h1 class="bosstitle">Defeat SekiGoo</h1>
+          <p>Are you sure you want to accept this bounty?</p>
+          <button onclick="location.href='game.html'">Yes</button>
+          <button onclick="overlayoffboss2()">No</button>
+        </div>
       </div>
+    <div class="nav">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="account.html">Account</a></li>
+        <li><p id="gemCount">Gemcount</p></li>
+      </ul>
     </div>
-  <div class="nav">
-    <ul>
-      <li><a href="home.html">Home</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="account.html">Account</a></li>
-      <li><p id="gemCount">Gemcount</p></li>
-    </ul>
-  </div>
-  
-  <div class="logo">
-    <img src="assets/scipologo.svg" alt="Burnt Water Logo">
-  </div>
-  
-  <section class="container"> 
-    <div class="menucontainer">
-      <h1 id="bountytitle">Today's Bounties</h1>
-      <div class="menu">
-        <div class="menuitem">
-          <h2 class="bosstitle1">J. Whink,</h2>
-          <h3 class="bosstype">Vengeful Cyclops</h3>
-          <div class="sketchfab-embed-wrapper"> <iframe title="J.Whink Model" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="620" height="480" src="https://sketchfab.com/models/2ffeeae63d0d4b469c09902060690cbb/embed?autospin=1&autostart=1&transparent=1&ui_hint=0"> </iframe> </div>
-          <h2>Description</h2>
-          <div class="description">
-            <p>This Cyclops Bat once swore off violence after the death of its closest packmate until his pack killed his companion and stole his house. Now it tears through any creature in its path on a path of destruction and vengance, taking its anger out ot anyone and anything. <br><br>BE WARNED, adventurers claim they saw it dispose of 3 men in a cave with a rock. A ROCK.</p>
-          </div>
-          <h2>Rewards</h2>
-          <div class="rewards">
-            <p>11 Gems</p>
-          </div>
-          <button onclick="overlayonboss1()">Accept</button>
-        </div>
-        <div class="menuitem">
-          <h2 class="bosstitle2">SekiGoo,</h2>
-          <h3 class="bosstype">Samurai Slime</h3>
-          <div class="sketchfab-embed-wrapper"> <iframe title="Sekigoo" frameborder="0" allowfullscreen mozallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="620" height="480" src="https://sketchfab.com/models/b9cff0b4e63d46f5b38ce6bee8bf2b37/embed?autospin=1&autostart=1&transparent=1&ui_hint=0"> </iframe> </div>
-          <h2>Description</h2>
-          <div class="description">
-            <p>No swords, no legs, no problems! Sekigoo can use its gelatinous body to form anything it wishes, but seems to have a preference for an elaborately styled katana. No one knows where it got the helmet and mask but they are rumored to belong to a famous samurai decades ago. <br><br>This slime curiously does not seem to have a shadow. Maybe the world took his shadow away, so that it would not die twice  </p>
-          </div>
-          <h2>Rewards</h2>
-          <div class="rewards">
-            <p>13 Gems</p>
-          </div>
-          <button onclick="overlayonboss2()">Accept</button>
-        </div>
-        </div>
-        
+    
+    <div class="logo">
+      <img src="assets/scipologo.svg" alt="Burnt Water Logo">
     </div>
-  </section>
+    
+        <h1 id="bountytitle" class="home-bounty-title">Today's Bounties</h1>
+        <div class="menu">
+          <div class="menuitem">
+            <h2 class="bosstitle1">J. Whink,</h2>
+            <h3 class="bosstype">Vengeful Cyclops</h3>
+            <div class="sketchfab-embed-wrapper"> <iframe title="J.Whink Model" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width=100% height=400px src="https://sketchfab.com/models/2ffeeae63d0d4b469c09902060690cbb/embed?autospin=1&autostart=1&transparent=1&ui_hint=0"> </iframe> </div>
+            <h2>Description</h2>
+            <div class="description">
+              <p>This Cyclops Bat once swore off violence after the death of its closest packmate until his pack killed his companion and stole his house. Now it tears through any creature in its path on a path of destruction and vengance, taking its anger out ot anyone and anything. <br><br>BE WARNED, adventurers claim they saw it dispose of 3 men in a cave with a rock. A ROCK.</p>
+            </div>
+            <h2>Rewards</h2>
+            <div class="rewards">
+              <p>11 Gems</p>
+            </div>
+            <button onclick="overlayonboss1()">Accept</button>
+          </div>
+          <div class="menuitem">
+            <h2 class="bosstitle2">SekiGoo,</h2>
+            <h3 class="bosstype">Samurai Slime</h3>
+            <div class="sketchfab-embed-wrapper"> <iframe title="Sekigoo" frameborder="0" allowfullscreen mozallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width=100% height=400px src="https://sketchfab.com/models/b9cff0b4e63d46f5b38ce6bee8bf2b37/embed?autospin=1&autostart=1&transparent=1&ui_hint=0"> </iframe> </div>
+            <h2>Description</h2>
+            <div class="description">
+              <p>No swords, no legs, no problems! Sekigoo can use its gelatinous body to form anything it wishes, but seems to have a preference for an elaborately styled katana. No one knows where it got the helmet and mask but they are rumored to belong to a famous samurai decades ago. <br><br>This slime curiously does not seem to have a shadow. Maybe the world took his shadow away, so that it would not die twice  </p>
+            </div>
+            <h2>Rewards</h2>
+            <div class="rewards">
+              <p>13 Gems</p>
+            </div>
+            <button onclick="overlayonboss2()">Accept</button>
+          </div>
+          </div>
+  </section>      
   <script src="script.js"></script>
 </body>
 </html>
