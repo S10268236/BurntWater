@@ -621,7 +621,6 @@ COST BUTTON */
 /*Media Responive Bootstrap*/
 .container {
   border: 1px solid red;
-  max-width: 1536px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
