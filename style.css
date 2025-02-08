@@ -177,11 +177,12 @@ p{
 /* CSS FOR GAME END */
 /* CSS FOR STARTUP LOGOS*/
 img#logo{
-    max-height: 800px;
+    max-height: 500px;
 }
 #logo{
 
     display: flex;
+    justify-content: center;
     margin-top: 7%;
     margin-left: auto;
     margin-right: auto;
@@ -230,7 +231,7 @@ body#login-page{
   display: flex;
   flex-direction: column; /* Stack elements vertically */
   align-items: center;
-  width: 90%;
+  width: 100%;
   max-width: 800px;
   background: #fff;
   border: 1px solid #ddd;
@@ -394,7 +395,7 @@ input {
 }
 .menu button {
   height: 3%;
-  width: 20%;
+  width: 30%;
   font-family: "Eagle Lake", serif;
   font-size: 20px;
   margin-top: 2%;
@@ -620,7 +621,6 @@ COST BUTTON */
 }
 /*Media Responive Bootstrap*/
 .container {
-  border: 1px solid red;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
@@ -631,7 +631,7 @@ COST BUTTON */
     max-width: 1536px;
   }
   #overlay-black {
-    max-width: 1280px;
+    max-width: 1536px;
   }
   .logo {
     max-width: 1280px;
@@ -646,7 +646,7 @@ COST BUTTON */
     max-width: 1280px;
   }
   #overlay-black {
-    max-width: 1024px;
+    max-width: 1280px;
   }
 
   .logo {
@@ -658,6 +658,7 @@ COST BUTTON */
   .sketchfab-embed-wrapper {
     max-width: 1024px;
   }
+  
 }
 
 /* lg */
@@ -731,12 +732,21 @@ COST BUTTON */
 }
 
 /* xs */
-@media (max-width: 475px) {
+@media (max-width: 476px) {
   .container {
     width: 100%;
   }
   #bounty-title {
     font-size: 15px;
+  }
+  .bosstitle1 {
+    font-size: 30px;
+  }
+  .bosstype {
+    font-size: 20px;
+  }
+  .bosstitle2 {
+    font-size: 30px;
   }
 }
 /*MEDIA RESPONSIVE END*/
