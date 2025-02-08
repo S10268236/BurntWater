@@ -10,65 +10,92 @@
   <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
   <script src="script.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body onload="shopupdate()">
+<body onload="shopupdate(); mobilecheck()">
   </div>
-  <div class="overlay" id="overlayboss2" onclick="overlayoffboss2()"></div>
+  <div class="overlay" id="confirmpurchase" onclick="purchaseoverlayoff()">
+    <div class="overlaycontent">
+      <h1 class="bosstitle">Confirm Purchase</h1>
+      <p id="shopitem">Are you sure you want to buy this item?</p>
+      <button onclick="confirmpurchase()">Yes</button>
+      <button onclick="purchaseoverlayoff()">No</button>
+    </div>
+  </div>
   <div class="nav">
     <ul>
-      <li><a href="home.html">Home</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="account.html">Account</a></li>
+      <li><a href="javascript:void(0);" class="icon">
+        <i class="fa fa-bars"></i>
+      </a></li>
+      <li><a class="desktoponly" href="home.html">Home</a></li>
+      <li><a class="desktoponly" href="shop.html">Shop</a></li>
+      <li><a class="desktoponly" href="account.html">Account</a></li>
       <li><p id="gemCount">Gemcount</p></li>
     </ul>
   </div>
+  <h1 id="shoptitle">Shop</h1>
   <div id="statshop">
-    <h1>Shop</h1>
+    <div id="statshoptitle">
+      <h1>Stats</h1>
+    </div>
+    <div id="statshopitems">
     <div class="shopitem">
       <h2 class="bosstitle">Upgrade HP</h2> 
-      <div class="description">
-        <p>Increases your maximum health by 10</p>
+      <div class="itembox">
+        <h2>Increases your maximum health by 10</h2>
+        <img src="assets/heart.png" alt="health" class="shopimg">
         <p id="currenthp"></p>
-        <button onclick="buyhp()" class="cost"></button>
+        <h3>Buy next upgrade for:</h3>
+        <button id="HP" class="cost"></button>
       </div>
     </div>
     <div class="shopitem">
       <h2 class="bosstitle">Upgrade Attack</h2>
-      <div class="description">
-        <p>Increases your attack power by 5</p>
+      
+      <div class="itembox">
+        <h2>Increases your attack power by 5</h2>
+        <img src="assets/sword.png" alt="atk" class="shopimg">
         <p id="currentatk"></p>
-        <button onclick="buyatk()" class="cost">Buy</button>
+        <h3>Buy next upgrade for:</h3>
+        <button id="ATK"  class="cost">Buy</button>
       </div>
     </div>
+  </div>
+  </div>
+  <div id="trophyshop">
+    <div id="trophyshoptitle">
+      <h1>Trophies</h1>
+    </div>
+    <div id="trophyshopitems">
     <div class="trophies">
       <h2 class="trophytype">Bronze trophy</h2>
-      <div class="trophyDesc">
-        <p>Collectable item of achievement</p>
-      </div>
+      <img src="assets/trophies/bronzeTrophy.svg" alt="bronze" class="trophyimg">
+
+        <h2>Collectable item of achievement</h2>
       <div class="trophybutton">
-        <button onclick="buytrophy('bronzeTrophy',100)" class="cost">100 gems</button>
+        <button id="bronzeTrophy" class="cost">100 gems</button>
+      </div>
+    </div>
+  
+    <div class="trophies">
+      <h2 class="trophytype">Silver trophy</h2>
+      <img src="assets/trophies/silverTrophy.svg" alt="bronze" class="trophyimg">
+      <h2>Collectable item of achievement</h2>
+      <div class="trophybutton">
+        <button id="silverTrophy" class="cost">500 gems</button>
+      </div>
+    </div>
+
+    <div class="trophies">
+      <h2 class="trophytype">Gold trophy</h2>
+      <img src="assets/trophies/goldTrophy.svg" alt="bronze" class="trophyimg">
+      <h2>Collectable item of achievement</h2>
+      <div class="trophybutton">
+        <button id="goldTrophy" class="cost">1000 gems</button>
       </div>
     </div>
   </div>
-  <div class="trophies">
-    <h2 class="trophytype">Silver trophy</h2>
-    <div class="trophyDesc">
-      <p>Collectable item of achievement</p>
-    </div>
-    <div class="trophybutton">
-      <button onclick="buytrophy('silverTrophy', 500)" class="cost">500 gems</button>
-    </div>
   </div>
-</div>
-<div class="trophies">
-  <h2 class="trophytype">Gold trophy</h2>
-  <div class="trophyDesc">
-    <p>Collectable item of achievement</p>
-  </div>
-  <div class="trophybutton">
-    <button onclick="buytrophy('goldTrophy', 1000)" class="cost">1000 gems</button>
-  </div>
-</div>
 </div>
 </body>
 </html>

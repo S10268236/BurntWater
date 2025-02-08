@@ -466,6 +466,14 @@ function overlayoffboss2() {
     updatelocal();
     let gems = JSON.parse(localStorage.getItem("user"))[1];
     console.log(gems);
+    if (gems > 1000000000) {
+      gems = (gems / 1000000000).toFixed(1) + "B";
+    }
+    else if (gems > 1000000) {
+      gems = (gems / 1000000).toFixed(1) + "M";
+    } else if (gems > 1000) {
+      gems = (gems / 1000).toFixed(1) + "K";
+    } 
     document.getElementById("gemCount").innerHTML = "Gems: " + gems;
     
   }
@@ -484,15 +492,30 @@ function shopupdate(){
     let costboxes = document.getElementsByClassName("cost");
     let hpprice = costboxes[0];
     let atkprice = costboxes[1];
-    hpprice.innerHTML = `Cost: ${hp/10+5}`;
-    atkprice.innerHTML = `Cost: ${atk/5+8}`;
+    document.querySelectorAll("button.cost").forEach(button => {
+      button.addEventListener("click", function(){
+        item = this.id;
+        price = this.innerHTML.replace(/\D/g,'');
+        console.log("item:"+item);
+        console.log("price:"+price);
+        if (item.length<4){
+          document.getElementById("shopitem").innerHTML = `Purchase ${item} upgrade for ${price} gems?`;
+        }
+        else
+        {
+          
+          document.getElementById("shopitem").innerHTML = `Purchase ${`${item.charAt(0).toUpperCase()+item.slice(1).replace("Trophy", " Trophy")}`} for ${price} gems?`;
+        }
+        document.getElementById("confirmpurchase").style.display = "block";});
+    });
     currenthp=document.getElementById("currenthp");
     currentatk=document.getElementById("currentatk");
     currenthp.innerHTML = `Current HP: ${hp}`;
     currentatk.innerHTML = `Current ATK: ${atk}`;
-    hpbox.appendChild(currenthp);
-    atkbox.appendChild(currentatk);
+    hpprice.innerHTML = `${hp/10+5} Gems`;
+    atkprice.innerHTML = `${atk/5+8} Gems`;
     console.log(localStorage);
+
 }
 
 function buyhp(){
@@ -688,4 +711,60 @@ function logoutoff(){
 function logout(){
   localStorage.clear();
   window.location.href = "login.html";
+}
+
+
+function purchaseoverlayoff(){
+  document.getElementById("confirmpurchase").style.display = "none";
+}
+
+function confirmpurchase(){
+  item=document.getElementById("shopitem").innerHTML;
+  var item = item.split(" ")[1];
+  console.log("test:"+item);
+  if (item=="HP"){
+    buyhp();
+  }
+  else if (item=="ATK"){
+    buyatk();
+  }
+  else if (item=="Bronze"){
+    buytrophy("bronzeTrophy", 100);
+  }
+  else if (item=="Silver"){
+    buytrophy("silverTrophy", 500);
+  }
+  else if (item=="Gold"){
+    buytrophy("goldTrophy", 1000);
+  }
+}
+function mobilecheck(){
+document.querySelector('a.icon').addEventListener('click',showmenu);
+}
+
+function showmenu(){
+  console.log("menu");
+  nav=document.getElementsByClassName("nav")[0];
+  menu=document.createElement("ul");
+  menu.className = "menu";
+  homebutton=document.createElement("li");
+  homebutton.innerHTML = '<a href="home.html">Home</a>';
+  shopbutton=document.createElement("li");
+  shopbutton.innerHTML = '<a href="shop.html">Shop</a>';
+  accountbutton=document.createElement("li");
+  accountbutton.innerHTML = '<a href="account.html">Account</a>';
+  menu.appendChild(homebutton);
+  menu.appendChild(shopbutton);
+  menu.appendChild(accountbutton);
+  nav.appendChild(menu);
+  document.querySelector('a.icon').removeEventListener('click', showmenu);
+  document.querySelector('a.icon').addEventListener('click', hidemenu);
+}
+
+function hidemenu(){
+  console.log("menuoff");
+  nav=document.getElementsByClassName("nav")[0];
+  nav.removeChild(nav.getElementsByClassName("menu")[0]);
+  document.querySelector('a.icon').removeEventListener('click', hidemenu);
+  document.querySelector('a.icon').addEventListener('click', showmenu);
 }

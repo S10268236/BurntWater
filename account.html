@@ -7,11 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Shop</title>
     <script src="script.js"></script>
 </head>
 
-<body onload="updategemsvisuals(); accountupdate()">
+<body onload="updategemsvisuals(); accountupdate(); mobilecheck()">
     <div class="overlay" id="overlaylogout">
     <div class="overlaycontent">
       <h1 class="bosstitle">Log out?</h1>
@@ -20,13 +21,16 @@
     </div>
     </div>
     <div class="nav">
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="account.html">Account</a></li>
-          <li><p id="gemCount">Gemcount</p></li>
-        </ul>
-      </div>
+      <ul>
+        <li><a href="javascript:void(0);" class="icon">
+          <i class="fa fa-bars"></i>
+        </a></li>
+        <li><a class="desktoponly" href="home.html">Home</a></li>
+        <li><a class="desktoponly" href="shop.html">Shop</a></li>
+        <li><a class="desktoponly" href="account.html">Account</a></li>
+        <li><p id="gemCount">Gemcount</p></li>
+      </ul>
+    </div>
       <div class="account">
         <h1>Account</h1>
         <div class="accountinfo">

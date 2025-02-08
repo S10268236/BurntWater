@@ -9,9 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bokor&family=Eagle+Lake&family=Kaushan+Script&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body onload="updategemsvisuals(); fadein()">
+<body onload="updategemsvisuals(); fadein(); mobilecheck()">
+  
   <section class="container">
     <div id="overlay-black"></div>
     <div class="overlay" id="overlayboss1">
@@ -34,9 +36,12 @@
       </div>
     <div class="nav">
       <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="account.html">Account</a></li>
+        <li><a href="javascript:void(0);" class="icon">
+          <i class="fa fa-bars"></i>
+        </a></li>
+        <li><a class="desktoponly" href="home.html">Home</a></li>
+        <li><a class="desktoponly" href="shop.html">Shop</a></li>
+        <li><a class="desktoponly" href="account.html">Account</a></li>
         <li><p id="gemCount">Gemcount</p></li>
       </ul>
     </div>
