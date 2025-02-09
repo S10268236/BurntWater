@@ -107,6 +107,78 @@
         "Mesosphere"
       ],
       "answer": 2
+    },
+    {
+      "question": "Which gas do plants absorb from the atmosphere during photosynthesis?",
+      "choices": [
+        "Oxygen",
+        "Carbon Dioxide",
+        "Nitrogen"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the chemical formula for water?",
+      "choices": [
+        "CO2",
+        "H2O",
+        "O2"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which force keeps planets in orbit around the Sun?",
+      "choices": [
+        "Friction",
+        "Gravity",
+        "Magnetism"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What part of the plant conducts photosynthesis?",
+      "choices": [
+        "Roots",
+        "Stem",
+        "Leaves"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What type of energy is stored in food?",
+      "choices": [
+        "Kinetic Energy",
+        "Thermal Energy",
+        "Chemical Energy"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What is the boiling point of water at sea level?",
+      "choices": [
+        "100°C",
+        "50°C",
+        "150°C"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which organ in the human body is responsible for filtering blood?",
+      "choices": [
+        "Lungs",
+        "Kidneys",
+        "Liver"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which of the following is a renewable energy source?",
+      "choices": [
+        "Coal",
+        "Wind",
+        "Oil"
+      ],
+      "answer": 2
     }
   ]
 }

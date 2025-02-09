@@ -30,13 +30,14 @@ https://www.figma.com/proto/caeXNbC5GrKt1TLarXcP8r/BurntWater-AD?node-id=167-624
 - **Change boss of the day** -As there are only 2 bosses now, the bosses of the day stay the same. In the future implement daily changes in what bosses appear there.
 
 ## Technologies used
--[RestDB](https://restdb.io/)
- *Database that held our login, register and account data
+- [RestDB](https://restdb.io/)
+  *Database that held our login, register and account data
 - [JQuery](https://jquery.com/)
   * Helped to access the RestDB API
 - [Webkit](https://webkit.org/)
   * Used to add animation to progress bar elements
 - [FontAwesome](https://fontawesome.com/v4/get-started/)
   *Was used for certain icons like the hamburger menu in mobile mode
-
+- [LottieFiles](https://lottiefiles.com/)
+  *Used to do icons on the index page
 
