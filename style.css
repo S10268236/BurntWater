@@ -910,8 +910,9 @@ button[onclick="logoutoverlay()"]:hover{
     top: 0; left: 0;
     margin-top: 10%;
     background-image: url('assets/dungeonBackground.png');
-    background-size: no-repeat;
     background-position: center 1%;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   #playerbox{
     width: 90%;
