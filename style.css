@@ -263,8 +263,6 @@ body#login-page{
   gap: 20px;
 }
 .loginform button {
-  height:"800px";
-  width:"1000px";
   color: brown;
   font-family: "MedievalSharp", serif;
   font-size: 20px;
@@ -562,10 +560,6 @@ input {
 }
 .overlaycontent {
   border-radius: 20px;
-  img{
-    height: auto;
-    width: 70%;
-  }
   position: absolute;
   top: 15%;
   left: 24%;
@@ -579,7 +573,10 @@ input {
   align-items: center;
   padding: 2%;
 }
-
+.overlaycontent img{
+    height: auto;
+    width: 70%;
+  }
 .overlaycontent p, .overlaycontent button{
   font-size: 40px;
 }
@@ -595,7 +592,7 @@ width: auto;
 }
 /*Footer*/
 .footer {
-  margin-top: 5%px;
+  margin-top: 5%;
   width: 100%;
   background: #543d59;
   color: black;
@@ -651,9 +648,9 @@ COST BUTTON */
   flex-direction: column;
   
 }
-#statshoptitle{
-  h1{
-  margin-bottom: 0%;}
+#statshoptitle h1{
+  
+  margin-bottom: 0%;
 }
 #statshopitems{
   display: flex;
@@ -713,9 +710,9 @@ COST BUTTON */
   margin-bottom: 3%;
   width: 49%;
   height: 50%;
-  p{
-    font-size: 20px;
-  }
+}
+.shopitem p{
+  font-size: 20px;
 }
 .cost{
   font-size: 30px;
@@ -768,7 +765,7 @@ button[onclick="logoutoverlay()"]{
   font-size: 20px;
   background-color: maroon;
   color: white;
-  border: 1;
+  border: 1px;
   border-radius: 5px;
   outline: none;
   padding: 10px;
@@ -778,7 +775,7 @@ button[onclick="logoutoverlay()"]:hover{
   font-size: 20px;
   background-color: black;
   color: white;
-  border: 1;
+  border: 1px;
   outline: none;
   padding: 10px;
   margin-top: 3%;
@@ -899,10 +896,10 @@ button[onclick="logoutoverlay()"]:hover{
     position: absolute;
     left: 25%;
     z-index: 5;
-    img{
-      width: 80%;
-      height: auto;
-    }
+  }
+  .slashanimation img{
+    width: 80%;
+    height: auto;
   }
   @keyframes slash{
     0% { transform: translate(-50%, 30%) rotate(0deg);}
@@ -913,7 +910,7 @@ button[onclick="logoutoverlay()"]:hover{
     top: 0; left: 0;
     margin-top: 10%;
     background-image: url('assets/dungeonBackground.png');
-    background-size: cover no-repeat;
+    background-size: no-repeat;
     background-position: center 1%;
   }
   #playerbox{
