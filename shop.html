@@ -15,6 +15,13 @@
   <script src="https://kit.fontawesome.com/bd4f179071.js" crossorigin="anonymous"></script>
 </head>
 <body onload="shopupdate(); mobilecheck()">
+  <div class="overlay" id="overlaylogout">
+    <div class="overlaycontent">
+      <h1 class="bosstitle">Log out?</h1>
+      <button onclick="logout()">Confirm</button>
+      <button onclick="logoutoff()">Cancel</button>
+    </div>
+  </div>
   <div class="overlay" id="confirmpurchase" onclick="purchaseoverlayoff()">
     <div class="overlaycontent">
       <h1 class="bosstitle">Confirm Purchase</h1>

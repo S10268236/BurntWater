@@ -1,7 +1,8 @@
-//LOGIN START//
+//LOGIN API Key and URL//
+//Setup-Richard
 const apiKey = "679f624274defa6e69181f26";
 const dbUrl = "https://burntwater0-8144.restdb.io/rest/logins";
-// Register function
+// Register function 
 async function updatelocal() {
   let user = JSON.parse(localStorage.getItem("user"));
   let username = user[0];
@@ -33,9 +34,9 @@ async function register() {
       return;
     }
     
-    // System-defined values
-    const gems = 0; // Default role for new users
-    const hp = 50; // Default status for new users
+    // New Users base values
+    const gems = 0; 
+    const hp = 50; 
     const atk = 10;
     const trophies = {bronzeTrophy: 0, silverTrophy: 0, goldTrophy: 0};
     const bosscounter = 0;
@@ -44,7 +45,7 @@ async function register() {
       alert("Gems must be a valid positive number or zero");
       return;
     }
-
+    //Create new user and trackables
     try {
       const response = await fetch(dbUrl, {
         method: "POST",
@@ -178,7 +179,7 @@ function fadein(){
   setTimeout(function(){
     document.getElementById("overlay-black").outerHTML='';}, 1000);
   }
-
+//Door animation
 function clickanimation() {
     let logobox = document.getElementById("logobox");
     let dooranim = document.createElement('dotlottie-wc');
@@ -217,6 +218,8 @@ function switchanimation() {
 
 //LOTTIE END
 //GAME START
+
+//Initialize our countdown variable
 let timerInterval;
 
 function game() {
@@ -253,6 +256,7 @@ function game() {
     })
     document.getElementById('enemy').innerHTML = enemyhealth;
     document.getElementById('user').innerHTML = playerhealth;
+    //Disable excess clicking of options
     let canclick=0;
     for (let i = 1; i <= 3; i++) {
         const buttn = document.querySelector(`#answers button:nth-child(${i})`);
@@ -430,7 +434,7 @@ function startTimer() {
       }
   }, 1000);
 }
-
+//Healthiness of timer
 function checkColors(progressWidth) {
   if (progressWidth > 50) {
       document.documentElement.style.setProperty('--progress-color', 'green');
@@ -443,13 +447,14 @@ function checkColors(progressWidth) {
 
 //GAME END
 //HOME START
+//Bounty Pop up overlay on
 function overlayonboss1() {
   console.log(localStorage.getItem("user"));
     document.getElementById("overlayboss1").style.display = "block";
     localStorage.setItem("bossname", "JWhink");
     localStorage.setItem("reward", 11);
   }
-  
+  //Bounty popup overlay off
   function overlayoffboss1() {
     document.getElementById("overlayboss1").style.display = "none";
   }
@@ -463,6 +468,7 @@ function overlayonboss2() {
 function overlayoffboss2() {
   document.getElementById("overlayboss2").style.display = "none";
 }
+//Simplify large numbers of gems, ease of viewing
   function updategemsvisuals(){
     updatelocal();
     let gems = JSON.parse(localStorage.getItem("user"))[1];

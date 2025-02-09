@@ -14,7 +14,13 @@
 </head>
 
 <body onload="updategemsvisuals(); fadein(); mobilecheck()">
-  
+  <div class="overlay" id="overlaylogout">
+    <div class="overlaycontent">
+      <h1 class="bosstitle">Log out?</h1>
+      <button onclick="logout()">Confirm</button>
+      <button onclick="logoutoff()">Cancel</button>
+    </div>
+  </div>
   <section class="container">
     <div id="overlay-black"></div>
     <div class="overlay" id="overlayboss1">

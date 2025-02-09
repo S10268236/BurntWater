@@ -41,3 +41,29 @@ https://www.figma.com/proto/caeXNbC5GrKt1TLarXcP8r/BurntWater-AD?node-id=167-624
 - [LottieFiles](https://lottiefiles.com/)
   *Used to do icons on the index page
 
+## Assistive AI
+1. Tracking of extra variables: ChatGPT was used to help implement the tracking of extra variables on the API.
+![alt text](<AI Track variables.png>)
+2. Bug Fixing of the Countdown Timer: ChatGPT was used to help understand failures in the implementation of the countdown bar.
+![alt text](<AI Countdown.png>)
+
+## Testing
+1. **Login form**
+i. Filled in only one field, and no fields. Relevant error message recieved.
+ii.Attempt register with existing username. Relevant error message recieved.
+iii. Invalid username/password. Relevant error message recieved.
+2. **Shop**
+i. Attempt to buy more than can afford. Insufficient gems message.
+3. **Gameplay**
+i. Attempt to click multiple options. Clicks past the first do not register until next question is displayed.
+4. **Media Responsiveness** - Website is aesthetically designed for max-width of 600px which will cover phones. Menu is reduced to a hamburger menu and the Gems display.
+5. **Browsers** - Tested in Chrome, Internet Explorer and Firefox. All versions look similar.
+
+## Credits
+**Content**
+Idea of trivia rpg taken from Quiz RPG, Mystic World of Wiz
+**Media**
+i. Social icons on footer were take from fontawesome.com
+**Acknowledgements**
+i. Inspiration of J.Whink naming and lore- John Wick
+ii. Inspiration of SekiGoo naming and lore- Sekiro, Shadows Die Twice
