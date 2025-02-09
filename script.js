@@ -270,7 +270,8 @@ function game() {
                     dmgvisual=document.getElementsByClassName("slashanimation")[0]
                     dmgvisual.style.display="block";
                     dmgvisual.id="slashanimationanim"
-                    setTimeout(function(){dmgvisual.id="";dmgvisual.style.display="none";}, 200);
+                    setTimeout(function(){dmgvisual.id="";dmgvisual.style.display="none";}, 150);
+                    
                     
                 } else {
                     canclick+=1;
@@ -643,7 +644,9 @@ function buytrophy(trophytype, price) {
     $.ajax(settings).done(function (response) {
       console.log(response);
     });
-    shopupdate();
+    localStorage.setItem("user", JSON.stringify([user[0], newgems, user[2], user[3], user[4], user[5], newtrophies, user[7]]));
+    setTimeout(function () {
+    window.location.href = "account.html";}, 1000);
   } else {
     alert("Not enough gems!");
   }

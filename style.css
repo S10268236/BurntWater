@@ -124,9 +124,9 @@ progress#timer{
 }
 
 @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(1deg); }
-  100% { transform: translate(-1px, -2px) rotate(-1deg); }
+  0% { transform: rotate(0deg); }
+  10% { transform:  rotate(1deg); }
+  100% { transform:  rotate(-1deg); }
 }
 #dmgindicatoranim{
   
@@ -147,19 +147,15 @@ progress#timer{
     display: none;
 }
 @keyframes slash{
-  0% { transform: translate(0px, 0px) rotate(45deg); width:300px; opacity:20%}
-  50% { transform: translate(400px, 400px) rotate(45deg);  width:600px; opacity:100%}
-  100% { transform: translate(600px, 600px) rotate(45deg); width:200px; opacity:20%}}
+  0% { transform: translate(0px, 0px) rotate(0deg); width:300px; }
+  50% { transform: translate(400px, 0px) rotate(45deg);  width:600px;}
+  100% { transform: translate(600px, 0px) rotate(90deg); width:200px; }}
 
 .slashanimation{
+  display: none;
     position: absolute;
-    top: 10; left: 30%;
-    z-index:1;
-    width: 200px;
-    height:50px;
-    border-radius: 50%;
-    background-color: grey;
-    display: none;
+    left: 25%;
+    z-index: 5;
 }
 #slashanimationanim{
     animation: slash 0.2s;
@@ -568,7 +564,7 @@ input {
   border-radius: 20px;
   img{
     height: auto;
-    width: 100%;
+    width: 70%;
   }
   position: absolute;
   top: 15%;
@@ -787,12 +783,12 @@ button[onclick="logoutoverlay()"]:hover{
   padding: 10px;
   margin-top: 3%;
 }
-a[href="javascript:void(0);"]{
+.nav li:has(a[href="javascript:void(0);"]){
   display: none;
 }
 /* ACCOUNT PAGE END*/
 @media screen and (max-width: 600px) {
-  a[href="javascript:void(0);"]{
+  .nav li:has(a[href="javascript:void(0);"]){
     display: block;
   width: 60%;
   }
@@ -897,6 +893,22 @@ a[href="javascript:void(0);"]{
     height: auto;
     
   }
+  .slashanimation{
+    max-width: 50%;
+    display: none;
+    position: absolute;
+    left: 25%;
+    z-index: 5;
+    img{
+      width: 80%;
+      height: auto;
+    }
+  }
+  @keyframes slash{
+    0% { transform: translate(-50%, 30%) rotate(0deg);}
+    50% { transform: translate(0px, 0px) rotate(45deg);  }
+    100% { transform: translate(50%, 30%) rotate(90deg); }}
+  
   body[onload="game()"]{
     top: 0; left: 0;
     margin-top: 10%;
